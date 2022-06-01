@@ -4,11 +4,11 @@
 
 这份面试题会**持续更新优化**，如果大家有好的题目或答案，可以通过评论区、【[Issues](https://github.com/qaz624824554/blog/blob/master/interview/interview-questions.md)】或【[PR](https://github.com/qaz624824554/blog/blob/master/interview/interview-questions.md)】的方式告诉我，我将进行同步更新~
 
-每个栏目分为**⭐️Easy**（简单）、**⭐️⭐️Medium**（中等）、**⭐️⭐️⭐️Hard**（困难）三种难度任供大家选择。由于每个栏目的篇幅较大，为了不让大家迷路，我添加📚来表示一个大模块，📎表示大模块中的小模块，⭐️表示模块对应的等级难度。
+每个栏目分为**⭐️Easy**（简单）、**⭐️⭐️Medium**（中等）、**⭐️⭐️⭐️Hard**（困难）三种难度任供大家选择。由于每个栏目的篇幅较大，为了不让大家迷路，我添加📚来表示一个大模块，📎表示大模块中的小模块（只有部分大模块才有小模块），⭐️表示模块中面试题对应的等级难度。
 
 如果文中有任何错误，欢迎👏🏻大佬们在评论区指正，也可以通过【[Issues](https://github.com/qaz624824554/blog/blob/master/interview/interview-questions.md)】或【[PR](https://github.com/qaz624824554/blog/blob/master/interview/interview-questions.md)】的方式，我会定期进行修改~
 
-由于时间关系，可能有部分问题或答案还没补充上去，我会通过符号来标识，`✍️待补充`表示问题的答案待补充，`🤖待添加`表示当前模块的问题待添加，我会在每周末抽空时间进行完善和补充。最后，也希望能借助大家的力量，一起把这个文档一直维护下去~
+由于时间关系，可能有部分问题或答案还没补充上去，我会通过符号来标识，`✍️待补充`表示问题的答案待补充，`🤖待添加`表示当前模块的问题待添加，我会在每周抽空时间进行完善和补充，力争做一篇前端有史以来最全且与时俱进的面试题（附答案）的文章。最后，也希望能借助大家的力量，一起把这个文档一直维护下去~
 
 以下是整体的目录结构👇🏻
 
@@ -32,12 +32,15 @@
 ├── 📚跨端开发
 │   ├── 📎微信小程序
 │   ├── 📎React Native
-├── 📚计算机基础
+├── 📚手写函数
+├── 📚测试
+├── 📚操作系统
 ├── 📚计算机网络
 ├── 📚数据结构和算法
 ├── 📚设计模式
-├── 📚测试
-├── 📚手写函数
+├── 📚全栈
+│   ├── 📎SQL
+│   ├── 📎其他
 ├── 📚软技能
 ```
 
@@ -66,11 +69,83 @@ href用于建立页面与外部资源的关系，不会阻塞dom解析，src用�
 
 #### 4. H5和H4有什么不同？
 
-H5引入原生多媒体支持，引入canvas，引入语义化标签，新增离线存储等等。
+- 语义化标签: `header`、`footer`、`nav`、`section`、`article`、`aside` 等
+- 增强型表单：`date`(从一个日期选择器选择一个日期) 、`email`(包含 e-mail 地址的输入域) 、`number`(数值的输入域) 、`range`(一定范围内数字值的输入域) 、`search`(用于搜索域) 、`tel`(定义输入电话号码字段) 等
+- 视频和音频：`audio`、`video`
+- `Canvas`绘图、 `SVG`绘图
+- 地理定位：`Geolocation`
+- 拖放API：`drag`
+- `web worker`：是运行在后台的 `JavaScript`，独立于其他脚本，不会影响页面的性能
+- `web storage`: `localStorage`、`sessionStorage`
+- `WebSocket`: `HTML5` 开始提供的一种在单个 `TCP` 连接上进行全双工通讯的协议
 
 #### 5. 说说几个你常用的语义化标签和它的含义？
 
-✍️待补充
+- `address`——表示文档或article的联系信息
+- `article`——表示一段独立的内容
+- `aside`——表示与周边内容稍有牵涉的内容
+- `details`——生成一个区域，用户将其展开可以获得更多细节知识
+- `footer`——表示尾部
+- `h1~h6`——表示标题
+- `header`——表示首部
+- `hgroup`——将一组标题组织在一起，以便文档大纲只显示其中第一个标题
+- `nav`——表示有意集中在一起的导航元素
+- `section`——表示一个重要的概念或主题
+- `summary`——用在details元素中， 表示该元素内容的标题或说明
+
+#### 6. id 与 class 有什么区别？
+
+id 属性是用于指定文档的唯一标识符，可以使用id在页面中区分不同的模块。class 属性用于为 HTML 元素指定一个或多个类名；class 属性可用于任何 HTML 元素。
+
+#### 7. img中srcset属性的作用？
+
+`srcset`用来定义一个或多个图像候选地址，以`,`分割，每个候选地址将在特定条件下得以使用。`srcset`通常用于在响应式页面中根据**屏幕密度**或**图像大小**来显示不同的图片。目前常见的屏幕密度有**1x,2x,3x,4x**。
+
+屏幕密度：
+
+```html
+<!-- 屏幕密度为2时加载image-256.png -->
+<img src="image-128.png" srcset="image-256.png 2x" />
+```
+
+图像大小需要配合`sizes`属性一起使用：
+
+```html
+<!-- sizes属性给出了三种屏幕条件，以及对应的图像显示宽度。宽度不超过440像素的设备，图像显示宽度为100%；宽度441像素到900像素的设备，图像显示宽度为33%；宽度900像素以上的设备，图像显示宽度为254px -->
+<!-- 浏览器根据当前设备的宽度，从sizes属性获得图像的显示宽度，然后从srcset属性找出最接近该宽度的图像，进行加载。 -->
+<img srcset="img-160.jpg 160w,
+             img-320.jpg 320w,
+             img-640.jpg 640w,
+             img-1280.jpg 1280w"
+     sizes="(max-width: 440px) 100vw,
+            (max-width: 900px) 33vw,
+            254px"
+     src="img-1280.jpg">
+```
+
+#### 8. 常见行内元素有哪些？块级元素有哪些？空元素有哪些？
+
+这里解释下什么是空元素：空元素，即没有内容的HTML元素。空元素是在开始标签中关闭的，也就是空元素没有闭合标签。
+
+行内元素有：`<a>,<b>,<span>,<img>,<input>,<select>,<strong>`
+
+块级元素有：`<div>,<aside>,<section>,<article>,<header>,<footer>,<ul>,<ol>,<li>,<dl>,<dt>,<dd>,<p>,<h1>······<h6>`
+
+空元素：`<br>,<hr>,<img>,<input>,<link>,<meta>`
+
+#### 9. DOCTYPE的作用？
+
+`DOCTYPE`是HTML5中一种标准通用标记语言的文档类型声明，它的目的是**告诉浏览器（解析器）应该以什么样的文档类型定义来解析文档**，不同的渲染模式会影响浏览器对 CSS 代码甚⾄ JavaScript 脚本的解析。它必须声明在HTML⽂档的第⼀⾏。
+
+浏览器渲染页面有两种模式：
+
+- 标准模式（Standards mode）
+
+  在标准模式中，浏览器以其支持的最高标准呈现页面。
+
+- 怪异模式（Quirks mode）
+
+  在怪异模式中，页面以一种比较宽松的向后兼容的方式显示。
 
 ### ⭐️⭐️Medium
 
@@ -81,6 +156,85 @@ defer和async都会进行异步加载脚本，defer在dom解析完之后执行�
 #### 2. style标签prefetch和preload区别？
 
 prefetch和preload都会提前加载资源，但prefetch什么时候加载由浏览器决定。
+
+#### 3. iframe有哪些优缺点？
+
+`iframe`能将另一个HTML页面嵌入到当前页面中。
+
+优点：
+
+- 用来加载速度较慢的内容（如广告、图标等等）
+- 能够原封不动的把嵌入的网页展现出来
+- 网页如果为了统一风格，头部和版本都是一样的，就可以写成一个页面，用iframe来嵌套，增加代码的可重用性
+- 模块分离，便于更改，如果有多个网页引用iframe，只需要修改iframe的内容，就可以实现调用的每一个页面内容的更改，方便快捷
+
+缺点：
+
+- 产生多个页面，不易管理
+- 不利于SEO
+- 会增加服务器的http请求
+- 会阻塞父页面的load事件
+
+#### 4. head标签有什么用？其中什么标签必不可少？
+
+`<head>` 标签用于定义文档的头部，它是所有头部元素的容器。`<head>` 中的元素可以引用脚本、指示浏览器在哪里找到样式表、提供元信息等等。
+
+`<title>` 定义文档的标题，它是 head 部分中唯一必需的元素。
+
+#### 5. 常用的meta标签有哪些？
+
+`meta`标签是`head`标签内部的一个辅助性标签，常用语定义页面的说明，关键字，最后修改日期和其他元数据等等。
+
+`meta` 元素定义的元数据的类型包括以下几种：
+
+- 如果设置了 [`name`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta#attr-name) 属性，`meta` 元素提供的是文档级别（*document-level*）的元数据，应用于整个页面。
+- 如果设置了 [`http-equiv`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta#attr-http-equiv) 属性，`meta` 元素则是编译指令，提供的信息与类似命名的 HTTP 头部相同。
+- 如果设置了 [`charset`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta#attr-charset) 属性，`meta` 元素是一个字符集声明，告诉文档使用哪种字符编码。
+- 如果设置了 [`itemprop`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes#attr-itemprop) 属性，`meta` 元素提供用户定义的元数据。
+
+常用的meta标签有：
+
+（1）`charset`，用来描述HTML文档的编码类型
+
+```html
+<meta charset="UTF-8">
+```
+
+（2）`keywords`，页面关键字
+
+```html
+<meta name="keywords" content="xxx">
+```
+
+（3）`description`，页面描述
+
+```html
+<meta name="description" content="描述">
+```
+
+（4）`refresh`，页面重定向和刷新
+
+```html
+<meta http-equiv="refresh" content="0;url=">
+```
+
+（5）`viewport`，适配移动端，可以控制视口的大小和比例
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+```
+
+（6）搜索引擎索引方式，定义搜索引擎爬虫的索引方式，content的参数有all,none,index,noindex,follow,nofollow。默认是all
+
+```html
+<meta name="robots" content="index,follow" />
+```
+
+（7）`author`，用于标注网页作者举例
+
+```html
+<meta name="author" content="chenzilin">
+```
 
 ### ⭐️⭐️⭐️Hard
 
@@ -371,6 +525,10 @@ WeakMap的出现是为了解决Map中存在的查找、存储性能和内存泄�
 
 缺点：WeakMap不支持遍历属性，如果需要遍历应使用Map。
 
+#### 16. 谈谈你对web worker的理解？
+
+✍️待补充
+
 ### ⭐️⭐️⭐️Hard
 
 #### 1. 说下JS垃圾回收与V8垃圾回收的区别
@@ -423,9 +581,23 @@ type右边可以是任意类型，interface右边必须为结构；interface支�
 
 枚举允许开发者定义一组常数，当一个变量有几种可能的取值时，可以将其定义为枚举类型，枚举支持数值和字符串，数值枚举默认从0开始递增，也可以手动设置数值，从该数值开始递增。
 
+#### 3. 为什么要使用 TypeScript ? TypeScript 相对于 JavaScript 的优势是什么？
+
+✍️待补充
+
 ### ⭐️⭐️Medium
 
-🤖待添加
+#### 1. 实现ReturnType
+
+✍️待补充
+
+#### 2. 实现DeepReadOnly
+
+✍️待补充
+
+#### 3. 简单介绍一下 TypeScript 模块的加载机制？
+
+✍️待补充
 
 ### ⭐️⭐️⭐️Hard
 
@@ -829,6 +1001,10 @@ history模式利用HTML5 History Interface新增的`pushState()`和`replaceState
 
 不推荐同时使用`v-if`和`v-for`。
 
+##### 6. computed和watch的区别
+
+✍️待补充
+
 #### ⭐️⭐️Medium
 
 ##### 1. vue2双向绑定的原理？
@@ -983,6 +1159,10 @@ this.$bus.$on('foo', this.handle)
 
 ✍️待补充
 
+##### 9. keep-alive原理？
+
+✍️待补充
+
 #### ⭐️⭐️⭐️Hard
 
 ##### 1. 怎么理解 vue 中的 diff 算法？
@@ -1021,6 +1201,14 @@ this.$bus.$on('foo', this.handle)
 
 ✍️待补充
 
+##### 4. React Class 组件有哪些周期函数？分别有什么作用？
+
+✍️待补充
+
+##### 5. 简要说明 React Hook 中 useState 和 useEffect 的运行原理？
+
+✍️待补充
+
 #### ⭐️⭐️⭐️Hard
 
 ##### 1. 怎么理解 react 中的 diff 算法？
@@ -1033,15 +1221,21 @@ this.$bus.$on('foo', this.handle)
 
 #### ⭐️Easy
 
-🤖待添加
+##### 1. ng-show/ng-hide 与 ng-if的区别？
+
+✍️待补充
 
 #### ⭐️⭐️Medium
 
-🤖待添加
+##### 1. Angular中的digest周期是什么？
+
+✍️待补充
 
 #### ⭐️⭐️⭐️Hard
 
-🤖待添加
+##### 1. 有哪些措施可以改善Angular性能？
+
+✍️待补充
 
 
 
@@ -1075,41 +1269,81 @@ this.$bus.$on('foo', this.handle)
 
 ### ⭐️⭐️Medium
 
-#### 1. webpack 做过哪些优化，开发效率方面、打包策略方面等等
+#### 1. webpack做过哪些优化？
 
 ✍️待补充
 
-#### 2. webpack中Loader和Plugins的区别
+#### 2. webpack中Loader和Plugin的区别
 
-✍️待补充
+loader是一个转换器，它会将A文件编译成B文件，比如A.scss编译成A.css，单纯的文件转换过程。
+
+plugin是一个扩展器，它丰富了webpack本身，在webpack运行的生命周期中会广播出许多时间，plugin可以监听这些事件，和合适的时机通过webpack提供的API改变输出结果。
 
 #### 3. webpack plugins原理
 
-✍️待补充
+plugins提供一个prototype.apply函数，apply只在安装插件被webpack complier执行一次，apply方法传入一个complier对象，实参complier对象代表了完整的 webpack 环境配置，可以使用它来访问 webpack 的主环境。
+
+compilation 对象代表了一次资源版本构建，每当检测到一个文件变化，就会创建一个新的 compilation，从而生成一组新的编译资源。
+
+一个简单的插件结构：
+
+```javascript
+class HelloPlugin {
+  // 在构造函数中获取用户给该插件传入的配置
+  constructor(options) {}
+  // Webpack 会调用 HelloPlugin 实例的 apply 方法给插件实例传入 compiler 对象
+  apply(compiler) {
+    // 在emit阶段插入钩子函数，用于特定时机处理额外的逻辑；
+    compiler.hooks.emit.tap('HelloPlugin', (compilation) => {
+      // 在功能流程完成后可以调用 webpack 提供的回调函数；
+    })
+    // 如果事件是异步的，会带两个参数，第二个参数为回调函数，在插件处理完任务时需要调用回调函数通知webpack，才会进入下一个处理流程。
+    compiler.plugin('emit', function (compilation, callback) {
+      // 支持处理逻辑
+      // 处理完毕后执行 callback 以通知 Webpack
+      // 如果不执行 callback，运行流程将会一直卡在这不往下执行
+      callback()
+    })
+  }
+}
+
+module.exports = HelloPlugin
+```
 
 #### 4. webpack 热更新原理
 
-✍️待补充
+webpack-dev-server相当于服务器，浏览器（客户端）和WDS之间维护一个websocket，当有文件更新时WDS会向浏览器推送更新并带上构建的hash，如果构建结果和当前的有区别则向WDS发起请求获取更改的文件的列表，最后进行更新。
 
 #### 5. webpack tree shaking原理
 
-✍️待补充
+利用ES Module的静态分析，从入口文件出发扫描所有的依赖模块，以及模块的子依赖，将它们链接起来形成一个“抽象语法树（AST）”，运行代码，有用到的做标记，最后将AST中没有用到的代码删除。
 
-#### 6. 动态导入原理
+#### 6. webpack动态导入（按需加载）原理
 
-✍️待补充
+动态导入，即通过`import(xxx)`导入的模块不会在首次进行加载，而是当需要用到时进行异步加载获取。
+
+原理：采用JSONP的思路，将通过`import()`方法引入的文件打包成一个单独的js文件，在`import()`执行时动态创建script标签src为引入模块地址，由于JSONP是异步的，所以需要结合Promise，最终实现动态加载。
 
 #### 7. 谈谈你对source map的理解？
 
-✍️待补充
+在webpack打包源代码时，可能会很难追踪到错误和警告在源代码中的原始位置。为了更容易地追踪错误和警告，可以利用source map将编译后的代码映射回原始源代码。
+
+source map通过webpack的`devtool`字段进行配置，一般在生产环境会使用`none`或者`source-map`这两个值，设置`source-map`之后会生成一个单独的source map文件，为了安全性，应该在服务器配置不允许普通用户访问这个source map文件。
+
+具体值请参考这个[webpack文档](https://www.webpackjs.com/configuration/devtool/)。
 
 #### 8. webpack中bundle、chunk、module的区别
 
-✍️待补充
+bundle的含义是包（打包的产物），chunk是代码块，module是模块。
+
+一个chunk可以有多个module，一个entry入口对应一个bundle。
 
 #### 9. webpack5新特性
 
-✍️待补充
+- 用持久性缓存来提高构建性能
+- 用更好的算法和默认值来改进长期缓存
+- 用更好的Tree Shaking和代码生成来改善包代销
+- 改善与网络平台的兼容性
 
 #### 10. wepback的生命周期有哪些
 
@@ -1120,6 +1354,10 @@ this.$bus.$on('foo', this.handle)
 ✍️待补充
 
 #### 12. 为什么 Vite 启动这么快？
+
+✍️待补充
+
+#### 13. 如何做一个项目的国际化方案？
 
 ✍️待补充
 
@@ -1140,6 +1378,39 @@ this.$bus.$on('foo', this.handle)
 ### ⭐️⭐️Medium
 
 #### 1. 前端常见性能优化手段？
+
+分为css、js、网络3个层面：
+
+**css**
+
+- 将css文件放在head里面
+- 选择器尽量避免层级过深
+- 充分利用css继承，减少代码量
+- 提取公共样式，减少代码量
+- 使用精灵图
+
+**js**
+
+- 节流、防抖
+- 长列表滚动动态加载
+- 虚拟列表
+- script放在body里的最后面
+- dom操作
+  - 事件委托
+  - 使用虚拟dom
+  - 使用docuementFragement dom片段
+  - 避免回流、重绘
+
+**网络**
+
+- 减少http请求
+- 使用http2或http3
+- 利用浏览器缓存
+- 减少cookie大小，尽量使用Web Storage
+- CDN托管静态文件
+- 开启Gzip压缩
+
+#### 2. 虚拟列表的原理？
 
 ✍️待补充
 
@@ -1247,7 +1518,17 @@ this.$bus.$on('foo', this.handle)
 
 #### ⭐️⭐️Medium
 
-🤖待添加
+##### 1. 微信小程序的架构以及为什么要用到双线程？
+
+✍️待补充
+
+##### 2. 小程序在安卓和iOS上的区别？
+
+✍️待补充
+
+##### 3. 小程序体积压缩的方案？
+
+✍️待补充
 
 #### ⭐️⭐️⭐️Hard
 
@@ -1266,131 +1547,6 @@ this.$bus.$on('foo', this.handle)
 🤖待添加
 
 #### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-<hr />
-
-## 📚计算机基础
-
-### ⭐️Easy
-
-#### 1. 进程与线程的区别
-
-✍️待补充
-
-### ⭐️⭐️Medium
-
-#### 1. 进程通信的几种方式
-
-✍️待补充
-
-### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-<hr />
-
-## 📚计算机网络
-
-### ⭐️Easy
-
-🤖待添加
-
-### ⭐️⭐️Medium
-
-#### 1. TCP中三次握手和四次挥手的含义
-
-✍️待补充
-
-#### 2. Websocket与Ajax的区别？
-
-✍️待补充
-
-### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-<hr />
-
-## 📚数据结构和算法
-
-### ⭐️Easy
-
-#### 1. 二叉树的遍历有几种方法？
-
-- 前序遍历
-- 中序遍历
-- 后序遍历
-- 层序遍历
-
-#### 2. 冒泡排序实现
-
-✍️待补充
-
-#### 3. 选择排序实现
-
-✍️待补充
-
-#### 4. 插入排序实现
-
-✍️待补充
-
-### ⭐️⭐️Medium
-
-#### 1. 斐波那契数列实现
-
-✍️待补充
-
-### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-<hr />
-
-## 📚设计模式
-
-### ⭐️Easy
-
-🤖待添加
-
-### ⭐️⭐️Medium
-
-#### 1. 谈谈常见的设计模式？
-
-✍️待补充
-
-### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-<hr />
-
-## 📚测试
-
-### ⭐️Easy
-
-#### 1. 你觉得编写测试的好处是什么？
-
-✍️待补充
-
-### ⭐️⭐️Medium
-
-#### 1. ATDD、TDD和BDD的区别？
-
-✍️待补充
-
-### ⭐️⭐️⭐️Hard
 
 🤖待添加
 
@@ -1989,6 +2145,482 @@ class MyPromise {
   }
 }
 ```
+
+<hr />
+
+## 📚测试
+
+### ⭐️Easy
+
+#### 1. 你觉得编写测试的好处是什么？
+
+✍️待补充
+
+### ⭐️⭐️Medium
+
+#### 1. ATDD、TDD和BDD的区别？
+
+✍️待补充
+
+### ⭐️⭐️⭐️Hard
+
+🤖待添加
+
+
+
+<hr />
+
+## 📚操作系统
+
+### ⭐️Easy
+
+#### 1. 进程与线程的区别
+
+✍️待补充
+
+#### 2. linux中ls 命令执行什么功能？ 可以带哪些参数，有什么区别？
+
+✍️待补充
+
+#### 3. 软链接和硬链接的区别是什么？
+
+✍️待补充
+
+#### 4. linux中哪个命令专门用来查看后台任务？
+
+✍️待补充
+
+#### 5. 什么是操作系统？
+
+✍️待补充
+
+#### 6. 并发和并行有什么区别？
+
+✍️待补充
+
+#### 7. 协程与线程的区别？
+
+✍️待补充
+
+### ⭐️⭐️Medium
+
+#### 1. 进程通信的几种方式？
+
+✍️待补充
+
+#### 2. 如何看当前Linux系统有几颗物理CPU和每颗CPU的核数？
+
+✍️待补充
+
+#### 3. linux中使用top查看系统资源占用情况时，哪一列表示内存占用呢？
+
+✍️待补充
+
+#### 4. linux中如何查看当前系统都有哪些进程？
+
+✍️待补充
+
+#### 5. 什么是临界区，如何解决冲突？
+
+✍️待补充
+
+#### 6. 什么是死锁？死锁产生的条件？
+
+✍️待补充
+
+#### 7. 进程调度策略有哪几种？
+
+✍️待补充
+
+#### 8. 什么是虚拟内存？
+
+✍️待补充
+
+#### 9. 线程同步的方式有哪些？
+
+✍️待补充
+
+#### 10. 分页和分段有什么区别？
+
+✍️待补充
+
+### ⭐️⭐️⭐️Hard
+
+🤖待添加
+
+
+
+<hr />
+
+## 📚计算机网络
+
+### ⭐️Easy
+
+🤖待添加
+
+### ⭐️⭐️Medium
+
+#### 1. TCP中三次握手和四次挥手的含义
+
+✍️待补充
+
+#### 2. Websocket与Ajax的区别？
+
+✍️待补充
+
+### ⭐️⭐️⭐️Hard
+
+🤖待添加
+
+
+
+<hr />
+
+## 📚数据结构和算法
+
+### ⭐️Easy
+
+#### 1. 二叉树的遍历有几种方法？
+
+- 前序遍历
+- 中序遍历
+- 后序遍历
+- 层序遍历
+
+#### 2. 冒泡排序实现
+
+```javascript
+const bubbleSort = (l) => {
+  let flag = true;
+  for (let i = 0; i < l.length && flag; i++) {
+    flag = false;
+    for (let j = l.length - 1; j >= i; j--) {
+      if (l[j] > l[j + 1]) {
+        [l[j], l[j+1]] = [l[j+1], l[j]]; 
+        flag = true;
+      }
+    }
+  }
+  return l;
+};
+```
+
+#### 3. 选择排序实现
+
+```javascript
+const selectSort = (l) => {
+  let min;
+  for (let i = 0; i < l.length; i++) {
+    min = i;
+    for (let j = i + 1; j <= l.length; j++) {
+      if (l[min] > l[j]) {
+        min = j;
+      }
+    }
+    if (min !== i) {
+      [l[min], l[i]] = [l[i], l[min]]; 
+    }
+  }
+  return l;
+};
+```
+
+#### 4. 插入排序实现
+
+```javascript
+const insertSort = (l) => {
+  let v; // 哨兵
+  let j;
+  for (let i = 1; i < l.length; i++) {
+    if (l[i - 1] > l[i]) {
+      v = l[i];
+      for (j = i - 1; l[j] > v; j--) {
+        l[j + 1] = l[j];
+      }
+      l[j + 1] = v;
+    }
+  }
+  return l;
+};
+```
+
+#### 5. 折半（二分法）查找实现
+
+```javascript
+const binarySearch = (arr, key) => {
+  let low = 0;
+  let high = arr.length - 1;
+  let mid = 0;
+  while (low <= high) {
+    mid = Math.floor((low + high) / 2);
+    if (key < arr[mid]) {
+      high = mid - 1;
+    } else if (key > arr[mid]) {
+      low = mid + 1;
+    } else {
+      return mid;
+    }
+  }
+  return null;
+};
+```
+
+### ⭐️⭐️Medium
+
+#### 1. 斐波那契数列实现
+
+✍️待补充
+
+#### 2. 希尔排序实现
+
+```javascript
+const shellSort = (l) => {
+  let increment = l.length;
+  let v;
+  do {
+    increment = Math.floor(increment / 3) + 1; // 增量
+    for (let i = increment; i < l.length; i++) {
+      if (l[i] < l[i - increment]) {
+        v = l[i];
+        let j;
+        for (j = i - increment; j >= 0 && v < l[j]; j -= increment) {
+          // 跟插值排序法同理
+          l[j + increment] = l[j];
+        }
+        l[j + increment] = v;
+      }
+    }
+  } while (increment > 1);
+  return l;
+};
+```
+
+#### 3. 堆排序
+
+```javascript
+// 已知l[s...m]中记录的关键字除l[s]之外均满足堆的定义
+const heapAjust = (l, s, m) => {
+  let temp = l[s];
+  // 2*s根据完全二叉树的性质，为结点的左孩子，而2s+1是结点的右孩子
+  // j*=2代表孩子是以2的位数进行递增
+  for (let j = 2 * s; j <= m; j *= 2) {
+    // l[j] < l[j + 1]代表左孩子小于右孩子，则拿取更大的孩子
+    if (j < m && l[j] < l[j + 1]) {
+      ++j;
+    }
+    if (temp >= l[j]) break;
+    l[s] = l[j];
+    s = j;
+  }
+  l[s] = temp;
+  return l;
+};
+
+const heapSort = (l) => {
+  // 把l中的r构建成一个大顶堆
+  // l.length / 2，代表它们都是孩子的结点
+  for (let i = Math.floor((l.length - 1) / 2); i > 0; i--) {
+    l = heapAjust(l, i, l.length - 1);
+  }
+  for (let i = l.length - 1; i > 1; i--) {
+    [l[1], l[i]] = [l[i], l[1]];
+    l = heapAjust(l, 1, i - 1);
+  }
+  return l;
+};
+
+console.log(heapSort([0].concat([7,45,8,4,4,6,2,1])) // [0, 1, 2, 4, 4, 6, 7, 8, 45]
+```
+
+#### 4. 快排实现
+
+```javascript
+// 对数组位置进行调换
+const swap = (l, i, j) => {
+  [l[i], l[j]] = [l[j], l[i]];
+  return l;
+};
+// 选取当中的一个关键字，然后将关键字放到一个位置，使得它左边的值都比它小，右边的值都比它大
+const partition = (l, low, high) => {
+  // 用子表的第一个记录作枢轴记录
+  let pivotkey = l[low];
+  while (low < high) {
+    // 从表的两端交替向中间扫描
+    while (low < high && l[high] >= pivotkey) {
+      high--;
+    }
+    l = swap(l, low, high); // 将比枢轴记录小的记录交换到低端
+    while (low < high && l[low] <= pivotkey) {
+      low++;
+    }
+    l = swap(l, low, high); // 将比枢轴记录大的记录交换到高端
+  }
+  return { low, l };
+};
+const qSort = (l, low, high) => {
+  // pivot是枢轴的意思
+  let pivot;
+  if (low < high) {
+    const obj = partition(l, low, high); // 算出枢轴值pivot
+    pivot = obj.low;
+    l = obj.l;
+    // 通过对pivot左右子表的不断比对，最终形成一个有序的序列表
+    qSort(l, low, pivot - 1); // 对低子表递归排序
+    qSort(l, pivot + 1, high); // 对高子表递归排序
+  }
+  return l;
+};
+const quickSort = (l) => {
+  return qSort(l, 0, l.length - 1);
+};
+
+console.log(quickSort([5,4,6,7,5,3,1,5,34,4,56,3])); // [1, 3, 3, 4, 4, 5, 5, 5, 6, 7, 34, 56]
+```
+
+#### 5. 插值查找实现
+
+✍️待补充
+
+#### 6. 爬楼梯实现
+
+✍️待补充
+
+#### 7. 平衡二叉树的特定是什么？
+
+✍️待补充
+
+### ⭐️⭐️⭐️Hard
+
+#### 1. 平衡二叉树实现
+
+✍️待补充
+
+#### 2. 二叉排序树实现
+
+✍️待补充
+
+
+
+
+
+
+<hr />
+
+
+## 📚设计模式
+
+### ⭐️Easy
+
+#### 1. 谈谈常见的设计模式？
+
+- 单例模式
+- 原型模式
+- 工厂模式
+- 观察者模式
+- 策略模式
+- 代理模式
+- 装饰器模式
+- 桥接模式
+
+### ⭐️⭐️Medium
+
+#### 1. 谈谈你对单例模式的理解？
+
+✍️待补充
+
+#### 2. 谈谈你对工厂模式的理解？
+
+✍️待补充
+
+#### 3. 谈谈你对工厂模式的理解？
+
+✍️待补充
+
+### ⭐️⭐️⭐️Hard
+
+🤖待添加
+
+
+
+<hr />
+
+## 📚全栈
+
+### 📎SQL
+
+#### ⭐️Easy
+
+##### 1. 什么是视图？视图有什么作用？
+
+✍️待补充
+
+##### 2. 谈谈你对索引的理解？
+
+✍️待补充
+
+#### ⭐️⭐️Medium
+
+🤖待添加
+
+#### ⭐️⭐️⭐️Hard
+
+🤖待添加
+
+
+
+### 📎其他
+
+#### ⭐️Easy
+
+##### 1. 什么是Nginx？
+
+✍️待补充
+
+##### 2. 为什么要使用Nginx？
+
+✍️待补充
+
+##### 3. 为什么Nginx性能这么高？
+
+✍️待补充
+
+##### 4. docker如何批量清理临时镜像文件？
+
+✍️待补充
+
+##### 5. docker本地的镜像文件都存放在哪里？
+
+✍️待补充
+
+##### 6. docker如何停止所有正在运行的容器？
+
+✍️待补充
+
+#### ⭐️⭐️Medium
+
+##### 1. 什么是正向代理和反向代理？
+
+✍️待补充
+
+##### 2. Nginx的优缺点？
+
+✍️待补充
+
+##### 3. Nginx应用场景？
+
+✍️待补充
+
+##### 4. 如何用Nginx解决前端跨域问题？
+
+✍️待补充
+
+##### 5. 构建Docker镜像应该遵循哪些原则？
+
+✍️待补充
+
+#### ⭐️⭐️⭐️Hard
+
+🤖待添加
 
 
 
