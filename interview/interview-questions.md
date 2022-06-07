@@ -1,6 +1,6 @@
 ## 前言
 
-大家好，我是chenzilin。众所周知，面试是我们通往其他更高平台的必经之路之一，前段时间刚好在查漏补缺，经过2个多月的爆肝，我整理了一份前端史上最全的面试题（附答案）！本面试题面向所有前端小伙伴，希望这份面试题能给大家提供查漏补缺的作用，帮助大家通往更高的平台。
+大家好，我是chenzilin。众所周知，面试是我们通往其他更高平台的必经之路之一，前段时间刚好在查漏补缺，经过2个多月的爆肝，我整理了一份前端史上最全的面试题（附答案）！本面试题面向所有前端“攻城狮”，希望这份面试题能给大家提供查漏补缺的作用，帮助大家通往更高的平台。
 
 这份面试题会**持续更新优化**，如果大家有好的题目或答案，可以通过评论区、【[Issues](https://github.com/qaz624824554/blog/blob/master/interview/interview-questions.md)】或【[PR](https://github.com/qaz624824554/blog/blob/master/interview/interview-questions.md)】的方式告诉我，我将进行同步更新~
 
@@ -57,7 +57,17 @@
 
 #### 1. DOCTYPE有什么用？
 
-DOCTYPE是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的文档类型定义（DTD）来解析文档。
+`DOCTYPE`是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的文档类型定义（DTD）来解析文档。不同的渲染模式会影响浏览器对 CSS 代码甚⾄ JavaScript 脚本的解析。它必须声明在HTML⽂档的第⼀⾏。
+
+浏览器渲染页面有两种模式：
+
+- 标准模式（Standards mode）
+
+  在标准模式中，浏览器以其支持的最高标准呈现页面。
+
+- 怪异模式（Quirks mode）
+
+  在怪异模式中，页面以一种比较宽松的向后兼容的方式显示。
 
 #### 2. img标签的title和alt属性有什么区别
 
@@ -132,20 +142,6 @@ id 属性是用于指定文档的唯一标识符，可以使用id在页面中区
 块级元素有：`<div>,<aside>,<section>,<article>,<header>,<footer>,<ul>,<ol>,<li>,<dl>,<dt>,<dd>,<p>,<h1>······<h6>`
 
 空元素：`<br>,<hr>,<img>,<input>,<link>,<meta>`
-
-#### 9. DOCTYPE的作用？
-
-`DOCTYPE`是HTML5中一种标准通用标记语言的文档类型声明，它的目的是**告诉浏览器（解析器）应该以什么样的文档类型定义来解析文档**，不同的渲染模式会影响浏览器对 CSS 代码甚⾄ JavaScript 脚本的解析。它必须声明在HTML⽂档的第⼀⾏。
-
-浏览器渲染页面有两种模式：
-
-- 标准模式（Standards mode）
-
-  在标准模式中，浏览器以其支持的最高标准呈现页面。
-
-- 怪异模式（Quirks mode）
-
-  在怪异模式中，页面以一种比较宽松的向后兼容的方式显示。
 
 ### ⭐️⭐️Medium
 
@@ -270,7 +266,14 @@ CSS盒模型分为**标准盒模型**和**替代（IE）盒模型**，标准盒�
 
 #### 4. CSS 选择器的优先级是如何计算的？
 
-!important > inline style >  id > class > 元素 >  * > 继承
+元素选择符： 1
+class选择符： 10
+id选择符：100
+元素标签：1000
+
+1. !important声明的样式优先级最高，如果冲突再进行计算。
+2. 如果优先级相同，则选择最后出现的样式。
+3. 继承得到的样式的优先级最低。
 
 #### 5.讲讲margin塌陷和margin合并以及解决方案？
 
@@ -279,6 +282,60 @@ margin塌陷：当一个父元素嵌套一个子元素且父元素有`margin-top
 margin合并：有两个相邻上下的兄弟块元素，上面的元素设置了`margin-bottom`，下面的元素设置了`margin-top`，这时候它们相隔的距离是取两个值中的最大值，我们把这种情况称为margin合并。
 
 解决margin塌陷和margin合并：可以触发`BFC`来解决，但margin合并一般不通过`BFC`解决，因为需要修改HTML结构，一般我们通过计算并设置一方的margin来解决。
+
+#### 6. 常用的水平垂直居中的实现方案
+
+**（1） 基于绝对定位的解决方案**
+
+```css
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+```
+
+**（2）基于视口单位的解决方案**
+
+只适用于在视口中居中的场景。
+
+```css
+margin: 50vh auto 0;
+transform: translateY(-50%);
+```
+
+**（3）基于Flexbox的解决方案**
+
+```css
+display: flex;
+align-items: center;
+```
+
+**（4）基于表格的解决方案**
+
+只适用于行内元素。
+
+```css
+display: table-cell;
+vertical-align: middle;
+```
+
+#### 7. 谈谈你对媒体查询的理解
+
+**媒体查询定义浏览器在何种媒体环境中使用指定的样式表。
+
+媒体查询用法：
+
+- `link`元素的`media`属性
+- `style`元素的`media`属性
+- `@import`声明的媒体描述符部分
+- `@media`声明的媒体描述符部分
+
+```html
+<link type="text/css" rel="stylesheet" href="xxx.css" media="screen, print">
+<style type="text/css" media="screen, print">...</style>
+@import url(xxx.css) screen, print;
+@media screen, print {...}
+```
 
 ### ⭐️⭐️Medium
 
@@ -323,6 +380,122 @@ z-index影响层叠上下文元素的层叠性，越大越靠上层，默认为a
 #### 5. 响应式布局有哪些
 
 媒体查询、百分比布局、rem、vw布局。
+
+#### 6. 实现一个三角形
+
+利用`border`边框特性来实现
+
+```css
+.box {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top: 5px solid royalblue;
+}
+```
+
+<img src="https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2022_06_07_MVY86i.png" />
+
+#### 7. 画一条0.5px的线
+
+四种实现方法：
+
+- 直接设置0.5px（不同浏览器表现不一，不推荐）
+- 使用`scale`缩放（推荐）
+- 使用`linear-gradient`渐变
+- 使用`box-shadow`阴影
+
+```html
+<head>
+  <style>
+    .line1 {
+      background: #000;
+      height: 1px;
+    }
+    .line2 {
+      background: #000;
+      height: 0.5px;
+    }
+    .line3 {
+      height: 1px;
+      background: #000;
+      transform: scaleY(.5)
+    }
+    .line4 {
+      height: 1px;
+      background: linear-gradient(0deg, #fff, #000);
+    }
+    .line5 {
+      height: 1px;
+      background: none;
+      box-shadow: 0 0.5px 0 #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tip">1px</div>
+  <div class="line line1"></div>
+  <div class="tip">普通0.5</div>
+  <div class="line line2"></div>
+  <div class="tip">scale缩放</div>
+  <div class="line line3"></div>
+  <div class="tip">linear-gradient</div>
+  <div class="line line4"></div>
+  <div class="tip">box-shadow</div>
+  <div class="line line5"></div>
+</body>
+```
+
+<img src="https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2022_06_07_ZSKrnI.png" width="50%" />
+
+#### 8. 设置小于12px的字体 
+
+使用`scale`缩放
+
+```css
+p{font-size:12px;transform:scale(0.7);} // 0.7是缩放比例
+```
+
+#### 9. Sass、Less、Stylus 是什么？为什么要使用他们？
+
+`Sass`、`Less`、`Stylus`都是一种CSS预处理器，用来解决CSS的痛点：
+
+- 语法不够强大，无法嵌套书写
+- 没有变量和逻辑的复用机制
+
+CSS预处理器支持的特性：
+
+- 变量
+
+  增强复用性
+
+- 作用域
+
+- 嵌套
+
+- 继承
+
+- 导入`@import`
+
+  CSS的`@import`和预处理器的`@import`区别很大，CSS的`@import`会增加http请求，但预处理器的`@import`在编译期进行处理，最终生成一个CSS文件。
+
+  如果`@import`在多处同时导入同一个样式文件，那么它将被执行多次，造成编译时间增加并产生臃肿的CSS文件。
+
+#### 10. 视差滚动效果的原理？
+
+视差滚动（Parallax Scrolling）通过在网页向下滚动的时候，控制背景的移动速度比前景的移动速度慢来创建出令人惊叹的3D效果。
+
+实现方案：
+
+1. CSS3实现
+    优点：开发时间短、性能和开发效率比较好，缺点是不能兼容到低版本的浏览器
+2. jQuery实现
+    通过控制不同层滚动速度，计算每一层的时间，控制滚动效果。
+    优点：能兼容到各个版本的，效果可控性好
+    缺点：开发起来对制作者要求高
+3. 插件实现方式
+    例如：parallax-scrolling，兼容性十分好
 
 ### ⭐️⭐️⭐️Hard
 
@@ -525,9 +698,36 @@ WeakMap的出现是为了解决Map中存在的查找、存储性能和内存泄�
 
 缺点：WeakMap不支持遍历属性，如果需要遍历应使用Map。
 
-#### 16. 谈谈你对web worker的理解？
+#### 16. 谈谈你对Web Workers的理解？
 
-✍️待补充
+众所周知，JS是单线程，且JS执行会阻塞DOM解析，如果有一个计算量很大的函数执行，那么这个期间会造成页面卡顿，解决办法之一是通过使用**Web Workers**创建一个后台线程来执行脚本，当脚本执行完后使用消息机制将消息发送回JS主线程。
+
+Web Workers的局限性：
+
+- 不能操作dom结点
+- 不能使用window对象
+
+web worker应用场景：
+
+- 光线追踪
+- 数据加密
+- 数据预获取
+- 拼写检查
+
+总结起来就是一些比较消耗性能的事情，都可以交给Web Workers，来防止UI阻塞。
+
+```javascript
+// js主线程
+const worker = new Worker('worker.js');
+worker.onmessage = (e) => {
+  console.log(e.data); // hello chenzilin
+}
+
+// worker.js
+setTimeout(() => {
+  postMessage('hello chenzilin');
+}, 500);
+```
 
 ### ⭐️⭐️⭐️Hard
 
@@ -2546,7 +2746,7 @@ console.log(quickSort([5,4,6,7,5,3,1,5,34,4,56,3])); // [1, 3, 3, 4, 4, 5, 5, 5,
 
 ✍️待补充
 
-#### 7. 平衡二叉树的特定是什么？
+#### 7. 平衡二叉树的特点是什么？
 
 ✍️待补充
 
