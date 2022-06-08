@@ -1,4 +1,4 @@
-## 前言
+# 前言
 
 大家好，我是chenzilin。众所周知，面试是我们通往其他更高平台的必经之路之一，前段时间刚好在查漏补缺，经过2个多月的爆肝，我整理了一份前端史上最全的面试题（附答案）！本面试题面向所有前端“攻城狮”，希望这份面试题能给大家提供查漏补缺的作用，帮助大家通往更高的平台。
 
@@ -9,6 +9,8 @@
 如果文中有任何错误，欢迎👏🏻大佬们在评论区指正，也可以通过【[Issues](https://github.com/qaz624824554/blog/blob/master/interview/interview-questions.md)】或【[PR](https://github.com/qaz624824554/blog/blob/master/interview/interview-questions.md)】的方式，我会定期进行修改~
 
 由于时间关系，可能有部分问题或答案还没补充上去，我会通过符号来标识，`✍️待补充`表示问题的答案待补充，`🤖待添加`表示当前模块的问题待添加，我会在每周抽空时间进行完善和补充。最后，也希望能借助大家的力量，一起把这个文档一直维护下去~
+
+> 更新日期：`2022-06-08`
 
 以下是整体的目录结构👇🏻
 
@@ -51,11 +53,11 @@
 
 
 
-## 📚HTML
+# 📚HTML
 
-### ⭐️Easy
+## ⭐️Easy
 
-#### 1. DOCTYPE有什么用？
+### 1. DOCTYPE有什么用？
 
 `DOCTYPE`是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的文档类型定义（DTD）来解析文档。不同的渲染模式会影响浏览器对 CSS 代码甚⾄ JavaScript 脚本的解析。它必须声明在HTML⽂档的第⼀⾏。
 
@@ -69,15 +71,15 @@
 
   在怪异模式中，页面以一种比较宽松的向后兼容的方式显示。
 
-#### 2. img标签的title和alt属性有什么区别
+### 2. img标签的title和alt属性有什么区别
 
 title表示鼠标放到图像上时显示的文案，alt表示图片失效时显示的替代文案。
 
-####  3. 简述一下src与href的区别
+###  3. 简述一下src与href的区别
 
 href用于建立页面与外部资源的关系，不会阻塞dom解析，src用于替代这个元素，会阻塞dom解析。
 
-#### 4. H5和H4有什么不同？
+### 4. H5和H4有什么不同？
 
 - 语义化标签: `header`、`footer`、`nav`、`section`、`article`、`aside` 等
 - 增强型表单：`date`(从一个日期选择器选择一个日期) 、`email`(包含 e-mail 地址的输入域) 、`number`(数值的输入域) 、`range`(一定范围内数字值的输入域) 、`search`(用于搜索域) 、`tel`(定义输入电话号码字段) 等
@@ -89,7 +91,7 @@ href用于建立页面与外部资源的关系，不会阻塞dom解析，src用�
 - `web storage`: `localStorage`、`sessionStorage`
 - `WebSocket`: `HTML5` 开始提供的一种在单个 `TCP` 连接上进行全双工通讯的协议
 
-#### 5. 说说几个你常用的语义化标签和它的含义？
+### 5. 说说几个你常用的语义化标签和它的含义？
 
 - `address`——表示文档或article的联系信息
 - `article`——表示一段独立的内容
@@ -103,11 +105,11 @@ href用于建立页面与外部资源的关系，不会阻塞dom解析，src用�
 - `section`——表示一个重要的概念或主题
 - `summary`——用在details元素中， 表示该元素内容的标题或说明
 
-#### 6. id 与 class 有什么区别？
+### 6. id 与 class 有什么区别？
 
 id 属性是用于指定文档的唯一标识符，可以使用id在页面中区分不同的模块。class 属性用于为 HTML 元素指定一个或多个类名；class 属性可用于任何 HTML 元素。
 
-#### 7. img中srcset属性的作用？
+### 7. img中srcset属性的作用？
 
 `srcset`用来定义一个或多个图像候选地址，以`,`分割，每个候选地址将在特定条件下得以使用。`srcset`通常用于在响应式页面中根据**屏幕密度**或**图像大小**来显示不同的图片。目前常见的屏幕密度有**1x,2x,3x,4x**。
 
@@ -133,7 +135,7 @@ id 属性是用于指定文档的唯一标识符，可以使用id在页面中区
      src="img-1280.jpg">
 ```
 
-#### 8. 常见行内元素有哪些？块级元素有哪些？空元素有哪些？
+### 8. 常见行内元素有哪些？块级元素有哪些？空元素有哪些？
 
 这里解释下什么是空元素：空元素，即没有内容的HTML元素。空元素是在开始标签中关闭的，也就是空元素没有闭合标签。
 
@@ -143,17 +145,17 @@ id 属性是用于指定文档的唯一标识符，可以使用id在页面中区
 
 空元素：`<br>,<hr>,<img>,<input>,<link>,<meta>`
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. script标签中defer 和 async 的区别 ?
+### 1. script标签中defer 和 async 的区别 ?
 
 defer和async都会进行异步加载脚本，defer在dom解析完之后执行，async下载完立马执行。
 
-#### 2. style标签prefetch和preload区别？
+### 2. style标签prefetch和preload区别？
 
 prefetch和preload都会提前加载资源，但prefetch什么时候加载由浏览器决定。
 
-#### 3. iframe有哪些优缺点？
+### 3. iframe有哪些优缺点？
 
 `iframe`能将另一个HTML页面嵌入到当前页面中。
 
@@ -171,13 +173,13 @@ prefetch和preload都会提前加载资源，但prefetch什么时候加载由浏
 - 会增加服务器的http请求
 - 会阻塞父页面的load事件
 
-#### 4. head标签有什么用？其中什么标签必不可少？
+### 4. head标签有什么用？其中什么标签必不可少？
 
 `<head>` 标签用于定义文档的头部，它是所有头部元素的容器。`<head>` 中的元素可以引用脚本、指示浏览器在哪里找到样式表、提供元信息等等。
 
 `<title>` 定义文档的标题，它是 head 部分中唯一必需的元素。
 
-#### 5. 常用的meta标签有哪些？
+### 5. 常用的meta标签有哪些？
 
 `meta`标签是`head`标签内部的一个辅助性标签，常用语定义页面的说明，关键字，最后修改日期和其他元数据等等。
 
@@ -232,27 +234,25 @@ prefetch和preload都会提前加载资源，但prefetch什么时候加载由浏
 <meta name="author" content="chenzilin">
 ```
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-🤖待添加
+### 🤖待添加
 
 
 
-<hr />
+# 📚CSS
 
-## 📚CSS
+## ⭐️Easy
 
-### ⭐️Easy
-
-#### 1. CSS 属性是否区分大小写？
+### 1. CSS 属性是否区分大小写？
 
 不区分大小写。
 
-#### 2. CSS的盒模型？
+### 2. CSS的盒模型？
 
 CSS盒模型分为**标准盒模型**和**替代（IE）盒模型**，标准盒模型通过`box-sizing: content-box`设置，实际宽度=width+border+padding，替代盒模型通过`box-sizing: border-box`设置，实际宽度=width。
 
-#### 3. link与@import的区别？
+### 3. link与@import的区别？
 
 从四个角度分析
 
@@ -264,7 +264,7 @@ CSS盒模型分为**标准盒模型**和**替代（IE）盒模型**，标准盒�
 
 可控性：link支持js动态插入，@import不支持动态插入。
 
-#### 4. CSS 选择器的优先级是如何计算的？
+### 4. CSS 选择器的优先级是如何计算的？
 
 元素选择符： 1
 class选择符： 10
@@ -275,7 +275,7 @@ id选择符：100
 2. 如果优先级相同，则选择最后出现的样式。
 3. 继承得到的样式的优先级最低。
 
-#### 5.讲讲margin塌陷和margin合并以及解决方案？
+### 5.讲讲margin塌陷和margin合并以及解决方案？
 
 margin塌陷：当一个父元素嵌套一个子元素且父元素有`margin-top`时，这时如果给子元素设置`margin-top`会出现样式不生效的情况，我们把这种情况称为margin塌陷。
 
@@ -283,7 +283,7 @@ margin合并：有两个相邻上下的兄弟块元素，上面的元素设置�
 
 解决margin塌陷和margin合并：可以触发`BFC`来解决，但margin合并一般不通过`BFC`解决，因为需要修改HTML结构，一般我们通过计算并设置一方的margin来解决。
 
-#### 6. 常用的水平垂直居中的实现方案
+### 6. 常用的水平垂直居中的实现方案
 
 **（1） 基于绝对定位的解决方案**
 
@@ -319,7 +319,7 @@ display: table-cell;
 vertical-align: middle;
 ```
 
-#### 7. 谈谈你对媒体查询的理解
+### 7. 谈谈你对媒体查询的理解
 
 **媒体查询定义浏览器在何种媒体环境中使用指定的样式表。
 
@@ -337,9 +337,9 @@ vertical-align: middle;
 @media screen, print {...}
 ```
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. 请阐述块格式化上下文（Block Formatting Context）及其工作原理
+### 1. 请阐述块格式化上下文（Block Formatting Context）及其工作原理
 
 块级格式化上下文（BFC）是Web页面的可视化CSS渲染的部分，是块级盒布局发生的区域，也是浮动元素与其他元素交互的区域。
 
@@ -347,7 +347,7 @@ vertical-align: middle;
 
 解决了什么问题：margin塌陷、清除浮动、阻止元素被浮动元素覆盖。
 
-#### 2. 请阐述z-index属性，并说明如何形成层叠上下文（stacking context）
+### 2. 请阐述z-index属性，并说明如何形成层叠上下文（stacking context）
 
 z-index影响层叠上下文元素的层叠性，越大越靠上层，默认为auto。
 
@@ -357,11 +357,11 @@ z-index影响层叠上下文元素的层叠性，越大越靠上层，默认为a
 
 如何形成层叠上下文：根元素，position为absolute或relative且z-index不为auto，position为fixed或sticky，flex容器的子元素且z-index不为auto，grid容器的子元素且z-index不为auto，opacity小于1，transform、filter、prespective、clip-path、mask不为none，solation为isolate。
 
-#### 3. CSS 有哪些继承属性
+### 3. CSS 有哪些继承属性
 
 文本属性（text-xxx），字体属性（font-xxx），visibility。
 
-#### 4. 有哪些清除浮动的技术？
+### 4. 有哪些清除浮动的技术？
 
 1.`clear: both`
 
@@ -377,11 +377,11 @@ z-index影响层叠上下文元素的层叠性，越大越靠上层，默认为a
 }
 ```
 
-#### 5. 响应式布局有哪些
+### 5. 响应式布局有哪些
 
 媒体查询、百分比布局、rem、vw布局。
 
-#### 6. 实现一个三角形
+### 6. 实现一个三角形
 
 利用`border`边框特性来实现
 
@@ -396,7 +396,7 @@ z-index影响层叠上下文元素的层叠性，越大越靠上层，默认为a
 
 <img src="https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2022_06_07_MVY86i.png" />
 
-#### 7. 画一条0.5px的线
+### 7. 画一条0.5px的线
 
 四种实现方法：
 
@@ -449,7 +449,7 @@ z-index影响层叠上下文元素的层叠性，越大越靠上层，默认为a
 
 <img src="https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2022_06_07_ZSKrnI.png" width="50%" />
 
-#### 8. 设置小于12px的字体 
+### 8. 设置小于12px的字体 
 
 使用`scale`缩放
 
@@ -457,7 +457,7 @@ z-index影响层叠上下文元素的层叠性，越大越靠上层，默认为a
 p{font-size:12px;transform:scale(0.7);} // 0.7是缩放比例
 ```
 
-#### 9. Sass、Less、Stylus 是什么？为什么要使用他们？
+### 9. Sass、Less、Stylus 是什么？为什么要使用他们？
 
 `Sass`、`Less`、`Stylus`都是一种CSS预处理器，用来解决CSS的痛点：
 
@@ -482,7 +482,7 @@ CSS预处理器支持的特性：
 
   如果`@import`在多处同时导入同一个样式文件，那么它将被执行多次，造成编译时间增加并产生臃肿的CSS文件。
 
-#### 10. 视差滚动效果的原理？
+### 10. 视差滚动效果的原理？
 
 视差滚动（Parallax Scrolling）通过在网页向下滚动的时候，控制背景的移动速度比前景的移动速度慢来创建出令人惊叹的3D效果。
 
@@ -497,24 +497,21 @@ CSS预处理器支持的特性：
 3. 插件实现方式
     例如：parallax-scrolling，兼容性十分好
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-🤖待添加
-
-
+### 🤖待添加
 
 
-<hr />
 
-## 📚JavaScript
+# 📚JavaScript
 
-### ⭐️Easy
+## ⭐️Easy
 
-#### 1. 什么是闭包？
+### 1. 什么是闭包？
 
 闭包是一个函数有权访问另外一个函数作用域变量，通过闭包可以访问创建闭包时所处环境中的全部变量。闭包为函数创建时所处的作用域中的函数和变量创建“安全气泡”。通过这种方式，即使创建函数时所处的作用域已经消失，但是函数仍然能够获得执行时所需的全部内容。
 
-#### 2. let const var比较
+### 2. let const var比较
 
 从4个方面来分析。
 
@@ -526,19 +523,19 @@ CSS预处理器支持的特性：
 
 声明后修改值：var和let支持修改值，const不支持修改值。
 
-#### 3. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别
+### 3. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别
 
 offset表示可视区+滚动条的宽高度，client表示可视区的宽高度，scroll表示实际的宽高度。
 
-#### 4. mouseover/mouseout 与 mouseenter/mouseleave 的区别与联系
+### 4. mouseover/mouseout 与 mouseenter/mouseleave 的区别与联系
 
 mouseover/mouseout/mouseenter/mouseleavet当鼠标移入移出元素时都会触发，mouseover/mouseout移入移出子元素也会触发。
 
-#### 5. isNaN与Number.isNaN的区别
+### 5. isNaN与Number.isNaN的区别
 
 isNaN会尝试将参数转为数值，然后才会对转换的结果进行判断；Number.isNaN直接判断值是否为NaN，并且检查其类型是否为Number。
 
-#### 6. 类数组和数组的区别，dom 的类数组如何转换成数组
+### 6. 类数组和数组的区别，dom 的类数组如何转换成数组
 
 类数组没有数组Array的方法，比如push、forEach等等。
 
@@ -548,13 +545,31 @@ isNaN会尝试将参数转为数值，然后才会对转换的结果进行判断
 - `Array.prototype.slice.call(cArr)`
 - `Array.from(cArr)`
 
-#### 7. DOM事件机制，怎么阻止事件捕获
+### 7. 谈谈DOM事件机制
+
+触发DOM事件分为3个阶段：
+
+- 捕获阶段
+
+  首先被顶部元素捕获，并依次向下传递
+
+- 到达目标阶段
+
+- 冒泡阶段
+
+  目标事件捕获之后，事件处理转向冒泡，从目标元素向顶部元素冒泡
+
+默认的事件处理方式采用的是**事件冒泡**。
+
+可以使用事件对象`event.stopPropagation`阻止事件冒泡，使用`event.stopImmediatePropagation`阻止事件捕获。
+
+### 8. DOM事件机制，怎么阻止事件捕获
 
 调用事件对象`event.stopImmediatePropagation`。
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. js有哪些内置对象？
+### 1. js有哪些内置对象？
 
 基本对象分为一般对象、函数对象和错误对象：
 
@@ -568,7 +583,7 @@ isNaN会尝试将参数转为数值，然后才会对转换的结果进行判断
 
 数字和日期对象：Number、Date、Bigint、Math等等。
 
-#### 2. 如何理解作用域、作用域链和执行上下文？
+### 2. 如何理解作用域、作用域链和执行上下文？
 
 理解作用域，首先需要理解执行上下文，执行上下文分为全局执行上下文和函数执行上下文，当程序运行时，会创建一个全局执行上下文，当执行函数时，会创建一个函数执行上下文，当退出函数时，执行上下文也随着销毁。
 
@@ -576,15 +591,15 @@ isNaN会尝试将参数转为数值，然后才会对转换的结果进行判断
 
 当当前作用域访问不到变量时，会向外面的作用域访问，作用域的顶端是全局作用域，如果找到立即返回，如果顺着作用域链未找到该变量的引用，则抛出ReferenceError异常。
 
-#### 3. 如何创建一个没有 prototype(原型)的对象？
+### 3. 如何创建一个没有 prototype(原型)的对象？
 
 `Object.create(null)`。
 
-#### 4. 说说对原型链的理解
+### 4. 说说对原型链的理解
 
 每个实例对象都有一个私有属性`__proto__`，指向构造函数的原型对象prototype，原型对象也有自己的原型`__proto__`，层层向上直到一个对象的原型`__proto__`为null。几乎所有的js对象都是Object构造函数的实例。
 
-#### 5. JSON.stringify有什么缺点？
+### 5. JSON.stringify有什么缺点？
 
 undefined、function和symbol在数组对象中会被忽略，单独转换会返回undefined。
 
@@ -598,17 +613,17 @@ NaN和Infinity及null会被当做null。
 
 Map/Set/WeakMap/WeakSet仅会序列化可枚举的属性。
 
-#### 6. for...in 和 for...of的区别?
+### 6. for...in 和 for...of的区别?
 
 `for...in`以任意顺序迭代一个对象的除Symbol以外的可枚举属性，包括继承的可枚举属性。
 
 `for...of`遍历可迭代对象定义要迭代的数据。
 
-#### 7. new操作符都做了什么
+### 7. new操作符都做了什么
 
 创建一个对象，将对象的原型`__proto__`指向构造函数的原型对象`prototype`，将对象绑定到this并调用构造函数，如果构造函数返回对象或函数则直接返回，否则返回改对象。
 
-#### 8. 介绍下 Promise 的特性、优缺点
+### 8. 介绍下 Promise 的特性、优缺点
 
 Promise拥有3个状态，pending进行中、fulfilled已完成和rejected已拒绝，默认是pending，状态一旦改变不可变更，Promise对象接受一个回调函数，接受两个参数，resolve和reject，resolve调用将状态变成fulfilled，reject调用将状态变成rejected，在回调函数抛出错误，也会将状态变更为rejected。
 
@@ -616,7 +631,7 @@ Promise实例有3个方法，then方法接受两个回调函数，onFulfilled和
 
 Promise的优点是解决了回调地狱的问题，缺点第一是一旦新建就会立即执行，无法取消，第二是如果不设置回调函数，Promise内部抛出的错误不会反应到外部，除非手动监听rejectionhandled事件。
 
-#### 9. 说一下事件循环机制Event Loop
+### 9. 说一下事件循环机制Event Loop
 
 事件循环负责处理异步任务，异步任务分为**macro task宏任务**和**micro task微任务**，分别对应宏任务队列和微任务队列，每次事件循环，会先处理一个宏任务和所有的微任务，同一时刻只执行一个任务，依次执行。
 
@@ -626,7 +641,7 @@ Promise的优点是解决了回调地狱的问题，缺点第一是一旦新建�
 
 <img src='https://images-1256612942.cos.ap-guangzhou.myqcloud.com/55ABVA.jpg' style="width: 50%">
 
-#### 10. esmodule和commonjs的区别
+### 10. esmodule和commonjs的区别
 
 从5个角度分析
 
@@ -640,13 +655,13 @@ Promise的优点是解决了回调地狱的问题，缺点第一是一旦新建�
 
 export导出使用：esm的export和export default支持一起使用；cjs的module.exports和exports不支持一起使用，会被覆盖。
 
-#### 11. 解释下栈内存和堆内存？
+### 11. 解释下栈内存和堆内存？
 
 栈内存比堆内存速度更快，堆内存比栈内存更存储更多的容量。
 
 基本类型存储在栈内存，引用类型指针存储在栈内存，值存储在堆内存。
 
-#### 12. 箭头函数与普通函数区别
+### 12. 箭头函数与普通函数区别
 
 从5个角度分析
 
@@ -660,7 +675,7 @@ prototype：箭头函数没有原型对象prototype。
 
 yield关键字：yield不能在箭头函数中使用。
 
-#### 13. 如何理解回流和重绘
+### 13. 如何理解回流和重绘
 
 当DOM的变化影响了元素的几何属性，浏览器需要重新计算元素的几何属性，同时其他元素的几何属性和位置也会因此受到影响，浏览器会使渲染树中受到影响的部分失效，并重新构造渲染树，这个过程称为回流（重排）。
 
@@ -674,7 +689,7 @@ yield关键字：yield不能在箭头函数中使用。
 
 回流一定会触发重绘，回流代价比重绘高。
 
-#### 14. 讲讲this
+### 14. 讲讲this
 
 this受函数调用方式的影响，函数有5中调用方式
 
@@ -688,7 +703,7 @@ this受函数调用方式的影响，函数有5中调用方式
 
 作为bind、call和apply调用，this指向传入的对象。
 
-#### 15. WeakMap相比Map的优缺点是什么？
+### 15. WeakMap相比Map的优缺点是什么？
 
 WeakMap和Map都是用于保存键值对。
 
@@ -698,7 +713,7 @@ WeakMap的出现是为了解决Map中存在的查找、存储性能和内存泄�
 
 缺点：WeakMap不支持遍历属性，如果需要遍历应使用Map。
 
-#### 16. 谈谈你对Web Workers的理解？
+### 16. 谈谈你对Web Workers的理解？
 
 众所周知，JS是单线程，且JS执行会阻塞DOM解析，如果有一个计算量很大的函数执行，那么这个期间会造成页面卡顿，解决办法之一是通过使用**Web Workers**创建一个后台线程来执行脚本，当脚本执行完后使用消息机制将消息发送回JS主线程。
 
@@ -729,9 +744,9 @@ setTimeout(() => {
 }, 500);
 ```
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-#### 1. 说下JS垃圾回收与V8垃圾回收的区别
+### 1. 说下JS垃圾回收与V8垃圾回收的区别
 
 **JS垃圾回收**分为**引用计数**和**标记清除**：
 
@@ -767,55 +782,57 @@ setTimeout(() => {
 
 
 
-<hr />
 
-## 📚TypeScript
+# 📚TypeScript
 
-### ⭐️Easy
+## ⭐️Easy
 
-#### 1. type和interface的区别
+### 1. type和interface的区别
 
 type右边可以是任意类型，interface右边必须为结构；interface支持声明合并，同一作用域多个同名interface将自动合并。
 
-#### 2. 说说枚举的用法
+### 2. 说说枚举的用法
 
 枚举允许开发者定义一组常数，当一个变量有几种可能的取值时，可以将其定义为枚举类型，枚举支持数值和字符串，数值枚举默认从0开始递增，也可以手动设置数值，从该数值开始递增。
 
-#### 3. 为什么要使用 TypeScript ? TypeScript 相对于 JavaScript 的优势是什么？
+### 3. 为什么要使用 TypeScript ? TypeScript 相对于 JavaScript 的优势是什么？
+
+TypeScript是一门静态编译语言，是JavaScript的超集，它支持静态类型检查，能在代码运行之前及时发现错误，降低代码的出错概率。
+
+## ⭐️⭐️Medium
+
+### 1. 实现ReturnType
 
 ✍️待补充
 
-### ⭐️⭐️Medium
-
-#### 1. 实现ReturnType
+### 2. 实现DeepReadOnly
 
 ✍️待补充
 
-#### 2. 实现DeepReadOnly
+### 3. 简单介绍一下 TypeScript 模块的加载机制？
+
+首先会判断导入的文件有没有拓展名，如果没有拓展名，会依次加载`.ts`，`.tsx`，`.d.ts`，`.js`。
+
+### 4. 谈谈你对类型声明文件.d.ts的理解，它与.ts文件有什么区别？
 
 ✍️待补充
 
-#### 3. 简单介绍一下 TypeScript 模块的加载机制？
+## ⭐️⭐️⭐️Hard
 
-✍️待补充
-
-### ⭐️⭐️⭐️Hard
-
-🤖待添加
+### 🤖待添加
 
 
 
-<hr />
 
-## 📚Node
+# 📚Node
 
-### ⭐️Easy
+## ⭐️Easy
 
-🤖待添加
+### 🤖待添加
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. require一个模块时的查找过程
+### 1. require一个模块时的查找过程
 
 当`require`一个模块时，首先会先判断缓存中是否有该模块，有则直接返回，没有则进入查找阶段。`require`可分为3种类型：
 
@@ -831,7 +848,7 @@ type右边可以是任意类型，interface右边必须为结构；interface支�
 
   从当前目录的`node_modules`查找，如果当前目录的`node_modules`查找不到，则移动到父目录的`node_modules`查找直到根目录；如果设置了`NODE_PATH`环境变量，当上述查找不到时，会从`NODE_PATH`环境变量中的目录进行查找。
 
-#### 2. 如何理解中间件
+### 2. 如何理解中间件
 
 中间件（Middleware）是为应用提供通用服务和功能的软件。数据管理、应用服务、消息传递、身份验证和API管理通常都要通过中间件。
 
@@ -858,7 +875,7 @@ app.listen(3000)
 // 打印 1 3 2
 ```
 
-#### 3. node中进程之间是如何通信的
+### 3. node中进程之间是如何通信的
 
 node中创建一个进程，可以通过`child_process`模块的`fork()`方法，进程间通讯基于EventEmitter事件触发器，在子进程中使用`process.send()`发送消息，在父进程中调用`fork()`返回的子进程实例`on('message', callback)`方法监听消息。
 
@@ -878,27 +895,26 @@ setTimeout(() => {
 }, 1000);
 ```
 
-#### 4. process.nextTick(callback)、setImmediate(callback)和setTimeout(callback, 0)的区别？
+### 4. process.nextTick(callback)、setImmediate(callback)和setTimeout(callback, 0)的区别？
 
 ✍️待补充
 
-#### 5. child_process模块中，spawn()、fork()、exec()的区别？
+### 5. child_process模块中，spawn()、fork()、exec()的区别？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-🤖待添加
+### 🤖待添加
 
 
 
-<hr />
 
-## 📚浏览器
+# 📚浏览器
 
-### ⭐️Easy
+## ⭐️Easy
 
-#### 1. 常见的浏览器内核有哪些?
+### 1. 常见的浏览器内核有哪些?
 
 浏览器内核可以理解为排版引擎，主要由渲染引擎和js引擎组成，排版引擎主要负责获取网页内容（HTML、CSS、JS、图像）等信息进行解析、渲染页面。
 
@@ -910,15 +926,15 @@ setTimeout(() => {
 - Chrome浏览器——Blink内核
 - Firefox浏览器——Gecko内核
 
-#### 2. DOMContentLoaded 与 load 的区别 ?
+### 2. DOMContentLoaded 与 load 的区别 ?
 
 `DOMContentLoaded`在DOM解析完成时触发，`load`在页面所有资源（css、js、图片视频等等）加载完成时触发。
 
-#### 3. CSS加载会造成阻塞吗？
+### 3. CSS加载会造成阻塞吗？
 
 CSS加载不会阻塞**DOM解析**，但是会阻塞**DOM渲染**和**JS执行**。
 
-#### 4. 谈谈你对跨域资源共享的理解？
+### 4. 谈谈你对跨域资源共享的理解？
 
 跨域资源共享，简称CORS，是一种基于HTTP头的机制，允许服务器标示除了它之外的其他Origin域加载自己的资源。
 
@@ -926,9 +942,9 @@ CSS加载不会阻塞**DOM解析**，但是会阻塞**DOM渲染**和**JS执行**
 
 预检请求：客户端发起一个OPTIONS请求到服务器获知是否允许该实际请求，作用是避免跨域请求对服务器的用户数据产生未知预期的影响。
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. 浏览器的主要组成部分是什么？
+### 1. 浏览器的主要组成部分是什么？
 
 浏览器主要由以下部分组成：
 
@@ -960,7 +976,7 @@ CSS加载不会阻塞**DOM解析**，但是会阻塞**DOM渲染**和**JS执行**
 
   浏览器需要在硬盘上保存各种数据，如Cookie，Storage等。
 
-#### 2. 谈谈你对SPA单页应用的理解？
+### 2. 谈谈你对SPA单页应用的理解？
 
 SPA（single-page  application）单页应用是一种网络应用程序或网站的模型，它通过动态重写当前页面来与用户交互，而非传统的从服务器重新加载整个页面。
 
@@ -968,11 +984,11 @@ SPA（single-page  application）单页应用是一种网络应用程序或网�
 
 缺点：不利于SEO；首屏加载慢；浏览器导航前进、后退需要程序进行管理。
 
-#### 3. 为什么JS执行时会阻塞页面加载
+### 3. 为什么JS执行时会阻塞页面加载
 
 在解析HTML过程中，如果遇到`script`标签，渲染线程会暂停渲染过程，将控制权交给`js`引擎。由于`js`可以操作`DOM`，浏览器无法知晓js的具体内容，倘若先解析DOM，万一`js`执行了删除所有`DOM`的操作，那么浏览器就白忙活了，所以就干脆先暂停解析`DOM`，等到`js`执行完成再继续解析。
 
-#### 4. 说一说你对Cookie localStorage sessionStorage的理解
+### 4. 说一说你对Cookie localStorage sessionStorage的理解
 
 `Cookie`：
 
@@ -993,7 +1009,7 @@ Web Storage是一种比使用`Cookie`更直观的方式存储键值对，`localS
 - `localStorage`存储的数据永不过期除非手动清除，`sessionStorage`存储的数据当页面关闭时自动清除。
 - 数据共享：同一浏览器的相同域名和端口的不同页面间可以共享相同的`localStorage`，但是不同页面间无法共享`sessionStorage`的信息。
 
-#### 5. 讲讲浏览器缓存
+### 5. 讲讲浏览器缓存
 
 良好的缓存策略可以降低资源重复加载以提高网页的整体加载速度，浏览器缓存策略分为**强缓存**和**协商缓存**。
 
@@ -1021,7 +1037,7 @@ Web Storage是一种比使用`Cookie`更直观的方式存储键值对，`localS
 
 <img src="https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2022_03_09_38223505-d8ab53da-371d-11e8-9263-79814b6971a5.png" style="width: 50%"/>
 
-#### 6. 路由history和hash的区别？
+### 6. 路由history和hash的区别？
 
 **hash模式**
 
@@ -1059,7 +1075,7 @@ history模式利用HTML5 History Interface新增的`pushState()`和`replaceState
 - history修改的url可以是同域的任意url，hash则只能是同文档的url。
 - history模式往往需要后端支持，如果后端nginx没有覆盖路由地址，就会返回404，hash因为是同文档的url，即使后端没有覆盖路由地址，也不会返回404。
 
-#### 7. 谈一谈你对重排和重绘理解
+### 7. 谈一谈你对重排和重绘理解
 
 **重排**，也称回流，当DOM元素的位置，大小发生变化时，浏览器需要重新计算元素的几何属性，将其安排在界面中的正确位置，这个过程称为重排（回流），重排必然会导致重绘。
 
@@ -1071,7 +1087,7 @@ history模式利用HTML5 History Interface新增的`pushState()`和`replaceState
 
 导致重绘的属性：color、border-style、visibility、background...
 
-#### 8. 谈一谈跨域，同源策略，以及跨域解决方案
+### 8. 谈一谈跨域，同源策略，以及跨域解决方案
 
 跨域，当一个请求url与当前页面url的协议、域名、端口号三者之间的任意一个不同时我们称之为跨域。
 
@@ -1084,7 +1100,7 @@ history模式利用HTML5 History Interface新增的`pushState()`和`replaceState
 - script标签——jsonp
 - CORS跨域资源共享
 
-#### 9. 前端如何进行seo优化
+### 9. 前端如何进行seo优化
 
 - 合理的title、description、keywords
 - 使用语义化标签
@@ -1093,13 +1109,13 @@ history模式利用HTML5 History Interface新增的`pushState()`和`replaceState
 - 提高网站速度
 - 使用SSR
 
-#### 10. requestAnimationFrame与requestIdleCallback区别
+### 10. requestAnimationFrame与requestIdleCallback区别
 
 `requestAnimationFrame`传入一个回调函数，告诉浏览器在下次重绘之前执行这个函数，大部分浏览器1秒会执行60次，rAF一般用于执行动画函数。
 
 `requestIdleCallback`传入一个回调函数，函数将在浏览器空闲时被调用，一般用于执行后台和低优先级的工作。
 
-#### 11. SSR的实现原理？
+### 11. SSR的实现原理？
 
 定义：服务端渲染（简称SSR）就是在浏览器请求页面URL时，服务器提前将HTML文本组装好并返回给浏览器，这个HTML不需要经过JavaScript脚本的执行，即可构建出希望的DOM树并展示到页面中。
 
@@ -1107,13 +1123,13 @@ history模式利用HTML5 History Interface新增的`pushState()`和`replaceState
 
 缺点：代码复杂度增加；需要对同构资源进行处理；需要部署构建环境的支持；服务器压力增大，需要更多的负载均衡。
 
-#### 12. 讲讲浏览器的离线缓存
+### 12. 讲讲浏览器的离线缓存
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-#### 1. 讲讲浏览器的进程和线程？
+### 1. 讲讲浏览器的进程和线程？
 
 浏览器的进程分为：
 
@@ -1158,26 +1174,25 @@ history模式利用HTML5 History Interface新增的`pushState()`和`replaceState
 
   负责处理XHR或Fetch请求的线程。
 
-#### 2. 说一说从输入URL到页面呈现发生了什么？
+### 2. 说一说从输入URL到页面呈现发生了什么？
 
 ✍️待补充
 
 
 
 
-<hr />
 
-## 📚MVVM框架
+# 📚MVVM框架
 
-### 📎Vue
+## 📎Vue
 
-#### ⭐️Easy
+### ⭐️Easy
 
-##### 1. 为什么 data 在组件内必须是函数，而 vue 的根实例则没有此限制？
+#### 1. 为什么 data 在组件内必须是函数，而 vue 的根实例则没有此限制？
 
 因为vue的组件实例是支持复用的，如果data是一个对象，当我们对组件进行复用时，会共享同一个`data`对象，而如果`data`返回一个函数，每次组件实例化时都会运行函数创建一个全新的`data`，这样就不会造成data之间的共享和混淆了，每个实例可以维护一份被返回对象的独立的拷贝。
 
-##### 2. v-show与v-if区别
+#### 2. v-show与v-if区别
 
 `v-if`是“真正”的条件渲染，当指令的表达式值为`false`时，元素不会被挂载到dom树上。
 
@@ -1185,37 +1200,37 @@ history模式利用HTML5 History Interface新增的`pushState()`和`replaceState
 
 `v-if`相比`v-show`有更高的切换开销，而`v-show`有更高的初始渲染开销。因此，如果需要非常频繁的切换，则使用`v-show`较好；如果在运行时条件很少改变，则使用`v-if`较好。
 
-##### 3. vue2中选项props、data、method、computed、watch的优先级？
+#### 3. vue2中选项props、data、method、computed、watch的优先级？
 
 `props`>`methods`>`data`>`computed`>`watch`。
 
-##### 4. vue2中v-if与v-for的优先级哪个高？
+#### 4. vue2中v-if与v-for的优先级哪个高？
 
 当`v-if`和`v-for`一起使用时，`v-for`具有比`v-if`更高的优先级。
 
 不推荐同时使用`v-if`和`v-for`。
 
-##### 5. vue3中v-if和v-for的优先级哪个高？
+#### 5. vue3中v-if和v-for的优先级哪个高？
 
 在vue3版本中，`v-if`总是优先于`v-for`。
 
 不推荐同时使用`v-if`和`v-for`。
 
-##### 6. computed和watch的区别
+#### 6. computed和watch的区别
 
 ✍️待补充
 
-##### 7. Class 与 Style 如何动态绑定？
+#### 7. Class 与 Style 如何动态绑定？
 
 ✍️待补充
 
-##### 8. 在什么阶段才能访问操作DOM？
+#### 8. 在什么阶段才能访问操作DOM？
 
 ✍️待补充
 
-#### ⭐️⭐️Medium
+### ⭐️⭐️Medium
 
-##### 1. vue2双向绑定的原理？
+#### 1. vue2双向绑定的原理？
 
 vue2的双向绑定原理基于`Object.defineProperty()`方法，主要利用了**数据劫持结合发布-订阅模式**。
 
@@ -1225,7 +1240,7 @@ vue2的双向绑定原理基于`Object.defineProperty()`方法，主要利用了
 
 <img src="https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2022_05_31_AcPfBp.jpg" style="width: 50%" />
 
-##### 2. vue2和vue3分别的父组件和子组件的渲染时机？
+#### 2. vue2和vue3分别的父组件和子组件的渲染时机？
 
 **vue2:**
 
@@ -1255,7 +1270,7 @@ vue2的双向绑定原理基于`Object.defineProperty()`方法，主要利用了
 
   父beforeUnmount => 子beforeUnmount => 子unmounted => 父unmounted
 
-##### 3. 说下整个vue2的渲染过程？
+#### 3. 说下整个vue2的渲染过程？
 
 vue2的渲染过程分为**初次渲染过程**和**更新过程**
 
@@ -1274,11 +1289,11 @@ vue2的渲染过程分为**初次渲染过程**和**更新过程**
 
 <img src="https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2022_05_31_BBZDb5.jpg" style="width: 50%" />
 
-##### 4. 说下nextTick原理？
+#### 4. 说下nextTick原理？
 
 `nextTick`可以确保在下次 DOM 更新循环结束之后执行延迟回调。可以在修改数据之后立即使用这个方法，以便获取更新后的 DOM。`nextTick`本质是利用Event Loop 事件循环来进行异步操作。
 
-##### 5. 讲讲vue2 组件之间的通信
+#### 5. 讲讲vue2 组件之间的通信
 
 组件通信有如下分类：
 
@@ -1313,7 +1328,7 @@ this.$bus.$emit('foo')
 this.$bus.$on('foo', this.handle) 
 ```
 
-##### 6. vue2生命周期分别有哪些？
+#### 6. vue2生命周期分别有哪些？
 
 1. `beforeCreate`
 
@@ -1359,15 +1374,15 @@ this.$bus.$on('foo', this.handle)
 
     在捕获一个来自后代组件的错误时被调用。
 
-##### 7. vue3相比vue2新增了什么功能？
+#### 7. vue3相比vue2新增了什么功能？
 
 ✍️待补充
 
-##### 8. vue2和vue3双向绑定的区别？
+#### 8. vue2和vue3双向绑定的区别？
 
 ✍️待补充
 
-##### 9. 谈谈你对keep-alive的理解？
+#### 9. 谈谈你对keep-alive的理解？
 
 `keep-alive` 是 Vue 内置的一个组件，可以使被包含的组件保留状态，避免重新渲染 ，有以下特性：
 
@@ -1375,101 +1390,101 @@ this.$bus.$on('foo', this.handle)
 - 提供 `include` 和 `exclude` 属性，两者都支持字符串或正则表达式， `include` 表示只有名称匹配的组件会被缓存，`exclude` 表示任何名称匹配的组件都不会被缓存 ，其中 `exclude` 的优先级比 `include` 高；
 - 对应两个钩子函数 `activated` 和 `deactivated` ，当组件被激活时，触发钩子函数 `activated`，当组件被移除时，触发钩子函数 `deactivated`。
 
-##### 10. 使用过Vuex吗，它和Pinia有什么区别？
+#### 10. 使用过Vuex吗，它和Pinia有什么区别？
 
 ✍️待补充
 
-#### ⭐️⭐️⭐️Hard
+### ⭐️⭐️⭐️Hard
 
-##### 1. 怎么理解 vue 中的 diff 算法？
-
-✍️待补充
-
-
-
-### 📎React
-
-#### ⭐️Easy
-
-##### 1. React组件间的通信方式？
-
-✍️待补充
-
-##### 2. React如何区分Class组件和Function组件？
-
-✍️待补充
-
-##### 3. 谈谈你对redux的理解？
-
-✍️待补充
-
-#### ⭐️⭐️Medium
-
-##### 1. 调用setState之后发生了什么？
-
-✍️待补充
-
-##### 2. 什么是Portals？
-
-✍️待补充
-
-##### 3. 为什么React元素有一个$$typeof属性？
-
-✍️待补充
-
-##### 4. React Class 组件有哪些周期函数？分别有什么作用？
-
-✍️待补充
-
-##### 5. 简要说明 React Hook 中 useState 和 useEffect 的运行原理？
-
-✍️待补充
-
-#### ⭐️⭐️⭐️Hard
-
-##### 1. 怎么理解 react 中的 diff 算法？
+#### 1. 怎么理解 vue 中的 diff 算法？
 
 ✍️待补充
 
 
 
-### 📎Augular
+## 📎React
 
-#### ⭐️Easy
+### ⭐️Easy
 
-##### 1. ng-show/ng-hide 与 ng-if的区别？
-
-✍️待补充
-
-#### ⭐️⭐️Medium
-
-##### 1. Angular中的digest周期是什么？
+#### 1. React组件间的通信方式？
 
 ✍️待补充
 
-#### ⭐️⭐️⭐️Hard
+#### 2. React如何区分Class组件和Function组件？
 
-##### 1. 有哪些措施可以改善Angular性能？
+✍️待补充
+
+#### 3. 谈谈你对redux的理解？
+
+✍️待补充
+
+### ⭐️⭐️Medium
+
+#### 1. 调用setState之后发生了什么？
+
+✍️待补充
+
+#### 2. 什么是Portals？
+
+✍️待补充
+
+#### 3. 为什么React元素有一个$$typeof属性？
+
+✍️待补充
+
+#### 4. React Class 组件有哪些周期函数？分别有什么作用？
+
+✍️待补充
+
+#### 5. 简要说明 React Hook 中 useState 和 useEffect 的运行原理？
+
+✍️待补充
+
+### ⭐️⭐️⭐️Hard
+
+#### 1. 怎么理解 react 中的 diff 算法？
 
 ✍️待补充
 
 
 
-### 📎通用
+## 📎Augular
 
-#### ⭐️Easy
+### ⭐️Easy
 
-##### 1. MVC和MVVM框架区别？
-
-✍️待补充
-
-#### ⭐️⭐️Medium
-
-##### 1. 为什么虚拟DOM会提高性能？
+#### 1. ng-show/ng-hide 与 ng-if的区别？
 
 ✍️待补充
 
-##### 2. react和vue在列表渲染时都需要提供key，请问key有什么作用？
+### ⭐️⭐️Medium
+
+#### 1. Angular中的digest周期是什么？
+
+✍️待补充
+
+### ⭐️⭐️⭐️Hard
+
+#### 1. 有哪些措施可以改善Angular性能？
+
+✍️待补充
+
+
+
+## 📎通用
+
+### ⭐️Easy
+
+#### 1. MVC和MVVM框架区别？
+
+✍️待补充
+
+### ⭐️⭐️Medium
+
+#### 1. 为什么虚拟DOM会提高性能？
+
+✍️待补充
+
+#### 2. react和vue在列表渲染时都需要提供key，请问key有什么作用？
 
 `key` 是为  `vnode` 的唯一标记，通过这个 `key`，我们的 diff 操作可以更准确、更快速
 
@@ -1477,33 +1492,32 @@ this.$bus.$on('foo', this.handle)
 
 **更快速**：利用 `key` 的唯一性生成 map 对象来获取对应节点，比遍历方式更快。
 
-#### ⭐️⭐️⭐️Hard
+### ⭐️⭐️⭐️Hard
 
-🤖待添加
+#### 🤖待添加
 
 
 
-<hr />
 
-## 📚前端工程化
+# 📚前端工程化
 
-### ⭐️Easy
+## ⭐️Easy
 
-🤖待添加
+### 🤖待添加
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. webpack做过哪些优化？
+### 1. webpack做过哪些优化？
 
 ✍️待补充
 
-#### 2. webpack中Loader和Plugin的区别
+### 2. webpack中Loader和Plugin的区别
 
 loader是一个转换器，它会将A文件编译成B文件，比如A.scss编译成A.css，单纯的文件转换过程。
 
 plugin是一个扩展器，它丰富了webpack本身，在webpack运行的生命周期中会广播出许多时间，plugin可以监听这些事件，和合适的时机通过webpack提供的API改变输出结果。
 
-#### 3. webpack plugins原理
+### 3. webpack plugins原理
 
 plugins提供一个prototype.apply函数，apply只在安装插件被webpack complier执行一次，apply方法传入一个complier对象，实参complier对象代表了完整的 webpack 环境配置，可以使用它来访问 webpack 的主环境。
 
@@ -1534,21 +1548,21 @@ class HelloPlugin {
 module.exports = HelloPlugin
 ```
 
-#### 4. webpack 热更新原理
+### 4. webpack 热更新原理
 
 webpack-dev-server相当于服务器，浏览器（客户端）和WDS之间维护一个websocket，当有文件更新时WDS会向浏览器推送更新并带上构建的hash，如果构建结果和当前的有区别则向WDS发起请求获取更改的文件的列表，最后进行更新。
 
-#### 5. webpack tree shaking原理
+### 5. webpack tree shaking原理
 
 利用ES Module的静态分析，从入口文件出发扫描所有的依赖模块，以及模块的子依赖，将它们链接起来形成一个“抽象语法树（AST）”，运行代码，有用到的做标记，最后将AST中没有用到的代码删除。
 
-#### 6. webpack动态导入（按需加载）原理
+### 6. webpack动态导入（按需加载）原理
 
 动态导入，即通过`import(xxx)`导入的模块不会在首次进行加载，而是当需要用到时进行异步加载获取。
 
 原理：采用JSONP的思路，将通过`import()`方法引入的文件打包成一个单独的js文件，在`import()`执行时动态创建script标签src为引入模块地址，由于JSONP是异步的，所以需要结合Promise，最终实现动态加载。
 
-#### 7. 谈谈你对source map的理解？
+### 7. 谈谈你对source map的理解？
 
 在webpack打包源代码时，可能会很难追踪到错误和警告在源代码中的原始位置。为了更容易地追踪错误和警告，可以利用source map将编译后的代码映射回原始源代码。
 
@@ -1556,52 +1570,51 @@ source map通过webpack的`devtool`字段进行配置，一般在生产环境会
 
 具体值请参考这个[webpack文档](https://www.webpackjs.com/configuration/devtool/)。
 
-#### 8. webpack中bundle、chunk、module的区别
+### 8. webpack中bundle、chunk、module的区别
 
 bundle的含义是包（打包的产物），chunk是代码块，module是模块。
 
 一个chunk可以有多个module，一个entry入口对应一个bundle。
 
-#### 9. webpack5新特性
+### 9. webpack5新特性
 
 - 用持久性缓存来提高构建性能
 - 用更好的算法和默认值来改进长期缓存
 - 用更好的Tree Shaking和代码生成来改善包代销
 - 改善与网络平台的兼容性
 
-#### 10. wepback的生命周期有哪些
+### 10. wepback的生命周期有哪些
 
 ✍️待补充
 
-#### 11. npm管理痛点
+### 11. npm管理痛点
 
 ✍️待补充
 
-#### 12. 为什么 Vite 启动这么快？
+### 12. 为什么 Vite 启动这么快？
 
 ✍️待补充
 
-#### 13. 如何做一个项目的国际化方案？
+### 13. 如何做一个项目的国际化方案？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-🤖待添加
+### 🤖待添加
 
 
 
-<hr />
 
-## 📚前端优化
+# 📚前端优化
 
-### ⭐️Easy
+## ⭐️Easy
 
-🤖待添加
+### 🤖待添加
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. 前端常见性能优化手段？
+### 1. 前端常见性能优化手段？
 
 分为css、js、网络3个层面：
 
@@ -1634,83 +1647,80 @@ bundle的含义是包（打包的产物），chunk是代码块，module是模块
 - CDN托管静态文件
 - 开启Gzip压缩
 
-#### 2. 虚拟列表的原理？
+### 2. 虚拟列表的原理？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-🤖待添加
+### 🤖待添加
 
 
 
-<hr />
 
-## 📚前端监控
+# 📚前端监控
 
-### ⭐️Easy
+## ⭐️Easy
 
-🤖待添加
+### 🤖待添加
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. 前端如何做性能监控？
-
-✍️待补充
-
-#### 2. 前端如何做异常监控？
+### 1. 前端如何做性能监控？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-<hr />
-
-## 📚前端安全
-
-### ⭐️Easy
-
-🤖待添加
-
-### ⭐️⭐️Medium
-
-#### 1. 谈一谈你对XSS攻击理解
+### 2. 前端如何做异常监控？
 
 ✍️待补充
 
-#### 2. 谈一谈你对CSRF攻击理解
+## ⭐️⭐️⭐️Hard
+
+### 🤖待添加
+
+
+
+
+# 📚前端安全
+
+## ⭐️Easy
+
+### 🤖待添加
+
+## ⭐️⭐️Medium
+
+### 1. 谈一谈你对XSS攻击理解
 
 ✍️待补充
 
-#### 3. 谈谈你对sql注入的理解
+### 2. 谈一谈你对CSRF攻击理解
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-<hr />
-
-## 📚前端图形学
-
-### ⭐️Easy
-
-🤖待添加
-
-### ⭐️⭐️Medium
-
-#### 1. 谈谈你对WebGL的理解？
+### 3. 谈谈你对sql注入的理解
 
 ✍️待补充
 
-#### 2. SVG和CANVAS的区别？
+## ⭐️⭐️⭐️Hard
+
+### 🤖待添加
+
+
+
+
+# 📚前端图形学
+
+## ⭐️Easy
+
+### 🤖待添加
+
+## ⭐️⭐️Medium
+
+### 1. 谈谈你对WebGL的理解？
+
+✍️待补充
+
+### 2. SVG和CANVAS的区别？
 
 从三个角度分析
 
@@ -1720,106 +1730,104 @@ bundle的含义是包（打包的产物），chunk是代码块，module是模块
 
 适合领域：svg适合图像，canvas适合游戏。
 
-#### 3. 图形系统是如何绘图的？
+### 3. 图形系统是如何绘图的？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-🤖待添加
+### 🤖待添加
 
 
 
-<hr />
 
-## 📚跨端开发
+# 📚跨端开发
 
-### 📎微信小程序
+## 📎微信小程序
 
-#### ⭐️Easy
+### ⭐️Easy
 
-##### 1. 简述下 wx.navigateTo(), wx.redirectTo(), wx.switchTab(), wx.navigateBack(), wx.reLaunch()的区别?
+#### 1. 简述下 wx.navigateTo(), wx.redirectTo(), wx.switchTab(), wx.navigateBack(), wx.reLaunch()的区别?
 
 - wx.navigateTo()：保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面 wx.redirectTo()：关闭当前页面，跳转到新的页面（类似重定向）。但是不允许跳转到 tabbar 页面
 -  wx.switchTab()：跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
 -  wx.navigateBack():关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages() 获取当前的页面栈，决定需要返回几层
 -  wx.reLaunch()：关闭所有页面，打开到应用内的某个页面
 
-#### ⭐️⭐️Medium
+### ⭐️⭐️Medium
 
-##### 1. 微信小程序的架构以及为什么要用到双线程？
-
-✍️待补充
-
-##### 2. 小程序在安卓和iOS上的区别？
+#### 1. 微信小程序的架构以及为什么要用到双线程？
 
 ✍️待补充
 
-##### 3. 小程序体积压缩的方案？
+#### 2. 小程序在安卓和iOS上的区别？
 
 ✍️待补充
 
-##### 4. 小程序的生命周期函数
+#### 3. 小程序体积压缩的方案？
 
 ✍️待补充
 
-##### 5. 微信小程序的优劣势
+#### 4. 小程序的生命周期函数
 
 ✍️待补充
 
-##### 6. bindtap和catchtap的区别是什么?
+#### 5. 微信小程序的优劣势
 
 ✍️待补充
 
-##### 7. 谈谈登录流程
+#### 6. bindtap和catchtap的区别是什么?
 
 ✍️待补充
 
-#### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-### 📎React Native
-
-#### ⭐️Easy
-
-##### 1. React Native的优缺点？
+#### 7. 谈谈登录流程
 
 ✍️待补充
 
-##### 2. React Native相对于原生的ios和Android有哪些优势？
+### ⭐️⭐️⭐️Hard
 
-✍️待补充
-
-#### ⭐️⭐️Medium
-
-##### 1. React Native的基本组件有哪些？
-
-✍️待补充
-
-##### 2. React Native组件的生命周期
-
-✍️待补充
-
-##### 3. bundle 加载机制
-
-✍️待补充
-
-#### ⭐️⭐️⭐️Hard
-
-🤖待添加
+#### 🤖待添加
 
 
 
-<hr />
-
-## 📚手写函数
+## 📎React Native
 
 ### ⭐️Easy
 
-#### 1. 防抖debounce
+#### 1. React Native的优缺点？
+
+✍️待补充
+
+#### 2. React Native相对于原生的ios和Android有哪些优势？
+
+✍️待补充
+
+### ⭐️⭐️Medium
+
+#### 1. React Native的基本组件有哪些？
+
+✍️待补充
+
+#### 2. React Native组件的生命周期
+
+✍️待补充
+
+#### 3. bundle 加载机制
+
+✍️待补充
+
+### ⭐️⭐️⭐️Hard
+
+#### 🤖待添加
+
+
+
+
+# 📚手写函数
+
+## ⭐️Easy
+
+### 1. 防抖debounce
 
 ```javascript
 const debounce = (fn, ms = 1000) => {
@@ -1835,7 +1843,7 @@ const debounce = (fn, ms = 1000) => {
 };
 ```
 
-#### 2. 节流throttle
+### 2. 节流throttle
 
 ```javascript
 const throttle = (fn, ms = 1000) => {
@@ -1851,7 +1859,7 @@ const throttle = (fn, ms = 1000) => {
 };
 ```
 
-#### 3. New
+### 3. New
 
 ```javascript
 const New = (fn, ...args) => {
@@ -1867,7 +1875,7 @@ const New = (fn, ...args) => {
 };
 ```
 
-#### 4. 数组去重
+### 4. 数组去重
 
 ```javascript
 const uniqueArr = (arr) => {
@@ -1875,15 +1883,15 @@ const uniqueArr = (arr) => {
 };
 ```
 
-#### 5. 实现正则切分千分位
+### 5. 实现正则切分千分位
 
 ✍️待补充
 
 
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. bind
+### 1. bind
 
 ```javascript
 Function.prototype.bind2 = function (context) {
@@ -1904,7 +1912,7 @@ Function.prototype.bind2 = function (context) {
 };
 ```
 
-#### 2. call
+### 2. call
 
 ```javascript
 Function.prototype.call2 = function (context = window) {
@@ -1918,7 +1926,7 @@ Function.prototype.call2 = function (context = window) {
 };
 ```
 
-#### 3. apply
+### 3. apply
 
 ```javascript
 Function.prototype.apply2 = function (context = window) {
@@ -1930,7 +1938,7 @@ Function.prototype.apply2 = function (context = window) {
 };
 ```
 
-#### 4. 深拷贝
+### 4. 深拷贝
 
 ```javascript
 const deepCopy = function (obj, cache = new WeakMap()) {
@@ -1967,7 +1975,7 @@ const deepCopy = function (obj, cache = new WeakMap()) {
 };
 ```
 
-#### 5. 柯里化
+### 5. 柯里化
 
 ```javascript
 const curry = function (fn) {
@@ -1983,7 +1991,7 @@ const curry = function (fn) {
 };
 ```
 
-#### 6. 继承
+### 6. 继承
 
 es5继承：
 
@@ -2042,7 +2050,7 @@ zs.sayAge();
 Children.callMe();
 ```
 
-#### 7. instanceof
+### 7. instanceof
 
 ```javascript
 const _instanceOf = (left, right) => {
@@ -2056,7 +2064,7 @@ const _instanceOf = (left, right) => {
 };
 ```
 
-#### 8. 数组扁平化
+### 8. 数组扁平化
 
 ```javascript
 function flatter(arr) {
@@ -2065,7 +2073,7 @@ function flatter(arr) {
 }
 ```
 
-#### 9. 对象扁平化
+### 9. 对象扁平化
 
 ```javascript
 const flatter = (obj) => {
@@ -2089,7 +2097,7 @@ const flatter = (obj) => {
 };
 ```
 
-#### 10. JSON.parse
+### 10. JSON.parse
 
 ```javascript
 const parse = (target) => {
@@ -2097,7 +2105,7 @@ const parse = (target) => {
 };
 ```
 
-#### 11. 事件触发器
+### 11. 事件触发器
 
 ```javascript
 class EventEmitter {
@@ -2133,7 +2141,7 @@ class EventEmitter {
 }
 ```
 
-#### 12. 简单实现async/await中的async函数
+### 12. 简单实现async/await中的async函数
 
 ```javascript
 const async = (genertor) => {
@@ -2155,17 +2163,17 @@ const async = (genertor) => {
 };
 ```
 
-#### 13. 正则获取url params
+### 13. 正则获取url params
 
 ✍️待补充
 
-#### 14. jsonp
+### 14. jsonp
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-#### 1. JSON.stringify
+### 1. JSON.stringify
 
 ```javascript
 function getType(o) {
@@ -2259,7 +2267,7 @@ function jsonStringify(target, initParent = [target]) {
 }
 ```
 
-#### 2. Promise
+### 2. Promise
 
 ```javascript
 const PENDING = 'pending';
@@ -2407,148 +2415,154 @@ class MyPromise {
 }
 ```
 
-<hr />
 
-## 📚测试
+# 📚测试
 
-### ⭐️Easy
+## ⭐️Easy
 
-#### 1. 你觉得编写测试的好处是什么？
-
-✍️待补充
-
-### ⭐️⭐️Medium
-
-#### 1. ATDD、TDD和BDD的区别？
+### 1. 你觉得编写测试的好处是什么？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️Medium
+
+### 1. ATDD、TDD和BDD的区别？
+
+✍️待补充
+
+## ⭐️⭐️⭐️Hard
 
 🤖待添加
 
 
 
-<hr />
 
-## 📚操作系统
+# 📚操作系统
 
-### ⭐️Easy
+## ⭐️Easy
 
-#### 1. 进程与线程的区别
-
-✍️待补充
-
-#### 2. linux中ls 命令执行什么功能？ 可以带哪些参数，有什么区别？
+### 1. 进程与线程的区别
 
 ✍️待补充
 
-#### 3. 软链接和硬链接的区别是什么？
+### 2. linux中ls 命令执行什么功能？ 可以带哪些参数，有什么区别？
 
 ✍️待补充
 
-#### 4. linux中哪个命令专门用来查看后台任务？
+### 3. 软链接和硬链接的区别是什么？
 
 ✍️待补充
 
-#### 5. 什么是操作系统？
+### 4. linux中哪个命令专门用来查看后台任务？
 
 ✍️待补充
 
-#### 6. 并发和并行有什么区别？
+### 5. 什么是操作系统？
 
 ✍️待补充
 
-#### 7. 协程与线程的区别？
+### 6. 并发和并行有什么区别？
 
 ✍️待补充
 
-### ⭐️⭐️Medium
-
-#### 1. 进程通信的几种方式？
+### 7. 协程与线程的区别？
 
 ✍️待补充
 
-#### 2. 如何看当前Linux系统有几颗物理CPU和每颗CPU的核数？
+## ⭐️⭐️Medium
+
+### 1. 进程通信的几种方式？
 
 ✍️待补充
 
-#### 3. linux中使用top查看系统资源占用情况时，哪一列表示内存占用呢？
+### 2. 如何看当前Linux系统有几颗物理CPU和每颗CPU的核数？
 
 ✍️待补充
 
-#### 4. linux中如何查看当前系统都有哪些进程？
+### 3. linux中使用top查看系统资源占用情况时，哪一列表示内存占用呢？
 
 ✍️待补充
 
-#### 5. 什么是临界区，如何解决冲突？
+### 4. linux中如何查看当前系统都有哪些进程？
 
 ✍️待补充
 
-#### 6. 什么是死锁？死锁产生的条件？
+### 5. 什么是临界区，如何解决冲突？
 
 ✍️待补充
 
-#### 7. 进程调度策略有哪几种？
+### 6. 什么是死锁？死锁产生的条件？
 
 ✍️待补充
 
-#### 8. 什么是虚拟内存？
+### 7. 进程调度策略有哪几种？
 
 ✍️待补充
 
-#### 9. 线程同步的方式有哪些？
+### 8. 什么是虚拟内存？
 
 ✍️待补充
 
-#### 10. 分页和分段有什么区别？
+### 9. 线程同步的方式有哪些？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-<hr />
-
-## 📚计算机网络
-
-### ⭐️Easy
-
-🤖待添加
-
-### ⭐️⭐️Medium
-
-#### 1. TCP中三次握手和四次挥手的含义
+### 10. 分页和分段有什么区别？
 
 ✍️待补充
 
-#### 2. Websocket与Ajax的区别？
+## ⭐️⭐️⭐️Hard
+
+### 🤖待添加
+
+
+
+
+# 📚计算机网络
+
+## ⭐️Easy
+
+### 1. 什么是HTTP，它的用途是什么？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️Medium
 
-🤖待添加
+### 1. TCP中三次握手和四次挥手的含义
+
+✍️待补充
+
+### 2. Websocket与Ajax的区别？
+
+✍️待补充
+
+### 3. HTTP2新增了什么？
+
+✍️待补充
+
+### 4. HTTP3解决了什么问题？
+
+✍️待补充
+
+## ⭐️⭐️⭐️Hard
+
+### 🤖待添加
 
 
 
-<hr />
 
-## 📚数据结构和算法
+# 📚数据结构和算法
 
-### ⭐️Easy
+## ⭐️Easy
 
-#### 1. 二叉树的遍历有几种方法？
+### 1. 二叉树的遍历有几种方法？
 
 - 前序遍历
 - 中序遍历
 - 后序遍历
 - 层序遍历
 
-#### 2. 冒泡排序实现
+### 2. 冒泡排序实现
 
 ```javascript
 const bubbleSort = (l) => {
@@ -2566,7 +2580,7 @@ const bubbleSort = (l) => {
 };
 ```
 
-#### 3. 选择排序实现
+### 3. 选择排序实现
 
 ```javascript
 const selectSort = (l) => {
@@ -2586,7 +2600,7 @@ const selectSort = (l) => {
 };
 ```
 
-#### 4. 插入排序实现
+### 4. 插入排序实现
 
 ```javascript
 const insertSort = (l) => {
@@ -2605,7 +2619,7 @@ const insertSort = (l) => {
 };
 ```
 
-#### 5. 折半（二分法）查找实现
+### 5. 折半（二分法）查找实现
 
 ```javascript
 const binarySearch = (arr, key) => {
@@ -2626,13 +2640,13 @@ const binarySearch = (arr, key) => {
 };
 ```
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. 斐波那契数列实现
+### 1. 斐波那契数列实现
 
 ✍️待补充
 
-#### 2. 希尔排序实现
+### 2. 希尔排序实现
 
 ```javascript
 const shellSort = (l) => {
@@ -2656,7 +2670,7 @@ const shellSort = (l) => {
 };
 ```
 
-#### 3. 堆排序
+### 3. 堆排序
 
 ```javascript
 // 已知l[s...m]中记录的关键字除l[s]之外均满足堆的定义
@@ -2693,7 +2707,7 @@ const heapSort = (l) => {
 console.log(heapSort([0].concat([7,45,8,4,4,6,2,1])) // [0, 1, 2, 4, 4, 6, 7, 8, 45]
 ```
 
-#### 4. 快排实现
+### 4. 快排实现
 
 ```javascript
 // 对数组位置进行调换
@@ -2738,41 +2752,40 @@ const quickSort = (l) => {
 console.log(quickSort([5,4,6,7,5,3,1,5,34,4,56,3])); // [1, 3, 3, 4, 4, 5, 5, 5, 6, 7, 34, 56]
 ```
 
-#### 5. 插值查找实现
+### 5. 插值查找实现
 
 ✍️待补充
 
-#### 6. 爬楼梯实现
+### 6. 爬楼梯实现
 
 ✍️待补充
 
-#### 7. 平衡二叉树的特点是什么？
+### 7. 平衡二叉树的特点是什么？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+## ⭐️⭐️⭐️Hard
 
-#### 1. 平衡二叉树实现
-
-✍️待补充
-
-#### 2. 二叉排序树实现
+### 1. 平衡二叉树实现
 
 ✍️待补充
 
+### 2. 二叉排序树实现
+
+✍️待补充
 
 
 
 
 
-<hr />
 
 
-## 📚设计模式
 
-### ⭐️Easy
+# 📚设计模式
 
-#### 1. 谈谈常见的设计模式？
+## ⭐️Easy
+
+### 1. 谈谈常见的设计模式？
 
 - 单例模式
 - 原型模式
@@ -2783,126 +2796,124 @@ console.log(quickSort([5,4,6,7,5,3,1,5,34,4,56,3])); // [1, 3, 3, 4, 4, 5, 5, 5,
 - 装饰器模式
 - 桥接模式
 
-### ⭐️⭐️Medium
+## ⭐️⭐️Medium
 
-#### 1. 谈谈你对单例模式的理解？
-
-✍️待补充
-
-#### 2. 谈谈你对工厂模式的理解？
+### 1. 谈谈你对单例模式的理解？
 
 ✍️待补充
 
-#### 3. 谈谈你对工厂模式的理解？
+### 2. 谈谈你对工厂模式的理解？
 
 ✍️待补充
 
-### ⭐️⭐️⭐️Hard
+### 3. 谈谈你对工厂模式的理解？
+
+✍️待补充
+
+## ⭐️⭐️⭐️Hard
 
 🤖待添加
 
 
 
-<hr />
 
-## 📚全栈
+# 📚全栈
 
-### 📎SQL
-
-#### ⭐️Easy
-
-##### 1. 什么是视图？视图有什么作用？
-
-✍️待补充
-
-##### 2. 谈谈你对索引的理解？
-
-✍️待补充
-
-#### ⭐️⭐️Medium
-
-🤖待添加
-
-#### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-### 📎其他
-
-#### ⭐️Easy
-
-##### 1. 什么是Nginx？
-
-✍️待补充
-
-##### 2. 为什么要使用Nginx？
-
-✍️待补充
-
-##### 3. 为什么Nginx性能这么高？
-
-✍️待补充
-
-##### 4. docker如何批量清理临时镜像文件？
-
-✍️待补充
-
-##### 5. docker本地的镜像文件都存放在哪里？
-
-✍️待补充
-
-##### 6. docker如何停止所有正在运行的容器？
-
-✍️待补充
-
-#### ⭐️⭐️Medium
-
-##### 1. 什么是正向代理和反向代理？
-
-✍️待补充
-
-##### 2. Nginx的优缺点？
-
-✍️待补充
-
-##### 3. Nginx应用场景？
-
-✍️待补充
-
-##### 4. 如何用Nginx解决前端跨域问题？
-
-✍️待补充
-
-##### 5. 构建Docker镜像应该遵循哪些原则？
-
-✍️待补充
-
-#### ⭐️⭐️⭐️Hard
-
-🤖待添加
-
-
-
-<hr />
-
-## 📚软技能
+## 📎SQL
 
 ### ⭐️Easy
 
-#### 🤖待添加
-
-### ⭐️⭐️Medium
-
-#### 1. 未来两三年内的职业发展？
+#### 1. 什么是视图？视图有什么作用？
 
 ✍️待补充
 
-#### 2. 平时有什么兴趣爱好？
+#### 2. 谈谈你对索引的理解？
 
-根据具体情况列举自己的爱好，越正能量越能让身体健康的更好，让面试官了解到你是一个热爱工作热爱生活的人，会是一个加分项。
+✍️待补充
+
+### ⭐️⭐️Medium
+
+#### 🤖待添加
 
 ### ⭐️⭐️⭐️Hard
 
-🤖待添加
+#### 🤖待添加
+
+
+
+## 📎其他
+
+### ⭐️Easy
+
+#### 1. 什么是Nginx？
+
+✍️待补充
+
+#### 2. 为什么要使用Nginx？
+
+✍️待补充
+
+#### 3. 为什么Nginx性能这么高？
+
+✍️待补充
+
+#### 4. docker如何批量清理临时镜像文件？
+
+✍️待补充
+
+#### 5. docker本地的镜像文件都存放在哪里？
+
+✍️待补充
+
+#### 6. docker如何停止所有正在运行的容器？
+
+✍️待补充
+
+### ⭐️⭐️Medium
+
+#### 1. 什么是正向代理和反向代理？
+
+✍️待补充
+
+#### 2. Nginx的优缺点？
+
+✍️待补充
+
+#### 3. Nginx应用场景？
+
+✍️待补充
+
+#### 4. 如何用Nginx解决前端跨域问题？
+
+✍️待补充
+
+#### 5. 构建Docker镜像应该遵循哪些原则？
+
+✍️待补充
+
+### ⭐️⭐️⭐️Hard
+
+#### 🤖待添加
+
+
+
+
+# 📚软技能
+
+## ⭐️Easy
+
+### 🤖待添加
+
+## ⭐️⭐️Medium
+
+### 1. 未来两三年内的职业发展？
+
+✍️待补充
+
+### 2. 平时有什么兴趣爱好？
+
+根据具体情况列举自己的爱好，越正能量越能让身体健康的更好，让面试官了解到你是一个热爱工作热爱生活的人，会是一个加分项。
+
+## ⭐️⭐️⭐️Hard
+
+### 🤖待添加
