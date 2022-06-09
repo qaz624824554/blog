@@ -803,19 +803,107 @@ TypeScript是一门静态编译语言，是JavaScript的超集，它支持静态
 
 ### 1. 实现ReturnType
 
-✍️待补充
+`ReturnType`获取函数返回值的类型。
 
-### 2. 实现DeepReadOnly
+```typescript
+type MyReturnType<T extends (...args: any[]) => any> = T extends (...args: any[]) => infer R ? R : any;
+```
 
-✍️待补充
+### 2. 实现DeepReadonly
+
+`DeepReadonly`是一个非内置类型，用来深度遍历T，并将其所有属性变成只读类型。
+
+```typescript
+type DeepReadonly<T> = { readonly [P in keyof T]: DeepReadonly<T[P]> }
+```
 
 ### 3. 简单介绍一下 TypeScript 模块的加载机制？
 
 首先会判断导入的文件有没有拓展名，如果没有拓展名，会依次加载`.ts`，`.tsx`，`.d.ts`，`.js`。
 
-### 4. 谈谈你对类型声明文件.d.ts的理解，它与.ts文件有什么区别？
+### 4. 谈谈你对类型声明文件的理解，它与.ts文件有什么区别？
 
 ✍️待补充
+
+### 5. 实现Partial
+
+`Partial`将类型的所有属性设置为可选。
+
+```typescript
+type MyPartial<T> = { [K in keyof T]?: T[K] };
+```
+
+### 6. 实现Required
+
+`Required`构造一个类型，将类型的属性都设置成必传。
+
+```typescript
+type MyRequired<T> = {
+  [K in keyof T]-?: T[K]
+};
+```
+
+### 7. 实现Record
+
+`Record`用于构造一个对象类型，K为属性键，T为属性值。
+
+```typescript
+type MyRecord<K extends keyof any, T> = {
+  [P in K]: T;
+};
+```
+
+### 8. 实现Pick
+
+`Pick`从T从选择一组keys来构造一个类型。
+
+```typescript
+type MyPick<T, K extends keyof T> = { [P in K]: T[P] };
+```
+
+### 9. 实现Exclude
+
+`Exclude`从T类型从排除U类型，T类型必须是UnionType。
+
+```typescript
+type MyExclude<T, U> = T extends U ? never : T;
+```
+
+### 10. 实现Omit
+
+`Omit`从T类型中排除U类型，T类型是Type。
+
+```typescript
+type MyExclude<T, U> = T extends U ? never : T;
+
+type MyPick<T, K extends keyof T> = { [P in K]: T[P] };
+
+type MyOmit<T, K extends keyof any> = MyPick<T, MyExclude<keyof T, K>>;
+```
+
+### 11. 实现Extract
+
+从T从提取U作为新type。
+
+```typescript
+type MyExtract<T, U> = T extends U ? T : never;
+```
+
+### 12. 实现NonNullable
+
+构造一个类型并排除掉`none`和`undefined`类型。
+
+```typescript
+type MyNonNullable<T> = T extends null ? never : T;
+```
+
+### 13. 实现Parameters
+
+获取函数的参数类型并构造成一个元组tuple类型。
+
+```typescript
+type MyParameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never;
+```
 
 ## ⭐️⭐️⭐️Hard
 
