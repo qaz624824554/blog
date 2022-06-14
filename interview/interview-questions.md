@@ -1409,15 +1409,19 @@ TCP建立连接和关闭连接需要一个完善的确认机制，一般将连�
 
 #### 6. computed和watch的区别
 
-✍️待补充
+`computed`用于处理任何响应式数据的复杂逻辑，而`watch`用于监听响应式数据变化时执行特定的操作。
 
 #### 7. Class 与 Style 如何动态绑定？
 
-✍️待补充
+有两种绑定方式，对象绑定和数组绑定
+
+Class的对象绑定当对象的值为true，对象的键将作为最终的值；数组绑定每个数组的值作为变量名取变量映射的值作为最终的值。
+
+Style的对象绑定对象的键为样式名，对象的值为样式值；数组绑定中，每个数组的值作为变量名取变量映射的值作为最终的值。
 
 #### 8. 在什么阶段才能访问操作DOM？
 
-✍️待补充
+`mounted`阶段即可访问。
 
 ### ⭐️⭐️Medium
 
@@ -1694,13 +1698,37 @@ this.$bus.$on('foo', this.handle)
 
 ## ⭐️Easy
 
-### 🤖待添加
+### 1. webpack中分包的作用是什么？
+
+分包可以避免：
+
+- 资源冗余：客户端必须等待整个应用的代码加载完毕才能启动，但可能用户当下访问的内容只是其中的一部分代码。
+- 缓存失效：将所有资源达成一个包后，所有改动——即使只是修改一个字符，客户端都需要重新下载整个代码包，缓存命中率低。
+
+我们可以对`node_modules`中变动较少的资源进行分包处理。
 
 ## ⭐️⭐️Medium
 
 ### 1. webpack做过哪些优化？
 
-✍️待补充
+(1)构建速度
+
+- 缩小文件的搜索范围（配置`include`/`exclude`/`resolve.modules`/`resolve.mainFields`/`alias`/`noParse`/`extensions`）。
+- 在一些性能开销较大的loader之前添加`cache-loader`，将结果缓存到磁盘中。
+- 使用`thread-loader`开启多进程打包。
+- 使用`happypack`开启多进程打包（作者不再维护，推荐使用`thread-lodaer`）。
+- 使用`HardSourceWebpackPlugin`为模块提供中间缓存，第二次构建可节省大量时间。
+- 使用`IgnorePlugin`忽略第三方包指定目录，例如moment的本地语言包。
+- 使用`webpack-parallell-uglify-plugin`开启JS多进程压缩。
+
+(2)减少打包体积
+
+- 使用`externals`配置，将第三方包放到CDN上。
+- 使用`DllPlugin`将`bundles`拆分，使用`DllReferencePlugin`对`manifest.json`引用，将一些基本不会变化的代码打包成静态资源。
+- 使用`optimization.splitChunks`分包，抽离公共代码。
+- 使用`url-loader`或`image-webpack-loader`对图片进行转化和压缩处理。
+- 优化source map`，开发环境推荐`cheap-module-eval-source-map`，生产环境推荐`cheap-module-source-map`。
+- 按需加载，对项目中的路由进行懒加载
 
 ### 2. webpack中Loader和Plugin的区别
 
