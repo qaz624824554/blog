@@ -10,7 +10,9 @@
 
 由于时间关系，可能有部分问题或答案还没补充上去，我会通过符号来标识，`✍️待补充`表示问题的答案待补充，`🤖待添加`表示当前模块的问题待添加，我会在每周抽空时间进行完善和补充。最后，也希望能借助大家的力量，一起把这个文档一直维护下去~
 
-> 更新日期：`2022-06-08`
+> 最近更新日期：`2022-06-15`
+>
+> 发表日期：`2022-06-08`
 
 以下是整体的目录结构👇🏻
 
@@ -1767,7 +1769,7 @@ class HelloPlugin {
 module.exports = HelloPlugin
 ```
 
-### 4. webpack 热更新原理
+### 4. webpack 热更新（HMR）原理
 
 webpack-dev-server相当于服务器，浏览器（客户端）和WDS之间维护一个websocket，当有文件更新时WDS会向浏览器推送更新并带上构建的hash，如果构建结果和当前的有区别则向WDS发起请求获取更改的文件的列表，最后进行更新。
 
@@ -1806,17 +1808,11 @@ bundle的含义是包（打包的产物），chunk是代码块，module是模块
 
 ✍️待补充
 
-### 11. npm管理痛点
+### 11. 为什么 Vite 开发环境下启动这么快？
 
-✍️待补充
-
-### 12. 为什么 Vite 启动这么快？
-
-✍️待补充
-
-### 13. 如何做一个项目的国际化方案？
-
-✍️待补充
+- Vite使用esbuild预构建依赖，esbuild使用Go编写，比以JavaScript编写的打包器预构建依赖快10-100倍。
+- Vite以基于原生ESM提供源码，让浏览器接管了打包程序的部分工作：Vite只需要在浏览器请求源码时进行转换并按需提供源码。
+- Vite使用HTTP头来加速整个页面的重新加载，源码模块使用协商缓存，依赖模块使用强缓存。
 
 ## ⭐️⭐️⭐️Hard
 
@@ -1887,11 +1883,211 @@ bundle的含义是包（打包的产物），chunk是代码块，module是模块
 
 ### 1. 前端如何做性能监控？
 
-✍️待补充
+先介绍下常见的几个性能指标：
+
+- FP（First Paint，首屏绘制）（白屏时间）：浏览器从响应用户输入网址，到浏览器开始显示内容的时间。
+- FCP（First Contentful Paint，首屏内容绘制）（首屏时间）：浏览器从响应用户输入网址，在页面首次绘制文本、图片（包括背景图）、非白色的canvas或者SVG的时间。
+- FMP（First Meaningful Paint，首次有效绘制）：页面的“主要内容”开始出现在屏幕上的时间，Lighthouse6.0以上开始已经取消这个指标，取而代之的是LCP。
+- LCP（Largest Contentful Paint，最大内容绘制）：可视区“内容”最大的可见元素出现在屏幕上的时间。
+- TTI（Time to Iteractive，可交互时间）（可操作性时间）：页面第一次完全达到可交互状态的时间。
+
+![2022_06_16_RkJcbB](https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2022_06_16_RkJcbB.jpg)
+
+接下来讲下如何测试这些指标：
+
+- FP、FCP
+
+  使用`performance.getEntriesByType('paint')`api。
+
+  ```javascript
+  window.performance.getEntriesByType('paint')
+  
+  /*
+  [
+      {
+          "name": "first-paint",
+          "entryType": "paint",
+          "startTime": 21557.40000000596,
+          "duration": 0
+      },
+      {
+          "name": "first-contentful-paint",
+          "entryType": "paint",
+          "startTime": 21557.40000000596,
+          "duration": 0
+      }
+  ]
+  */
+  ```
+
+- LCP
+
+  测试LCP有几种方式，这里简述常用的三种：
+
+  - 灯塔
+
+  - JavaScript中测试
+
+    ```javascript
+    new PerformanceObserver((entryList) => {
+      for (const entry of entryList.getEntries()) {
+        console.log('LCP candidate:', entry.startTime, entry);
+      }
+    }).observe({type: 'largest-contentful-paint', buffered: true});
+    ```
+
+  - 使用web-vitals
+
+    ```javascript
+    import {getLCP} from 'web-vitals';
+    
+    // 当 LCP 可用时立即进行测量和记录。
+    getLCP(console.log);
+    ```
+
+- TTI
+
+  测量TTI最好的方式是使用**灯塔（Lighthouse）**工具测量。也可以通过[WebPageTest网页性能测试工具](https://www.webpagetest.org/)测量
 
 ### 2. 前端如何做异常监控？
 
-✍️待补充
+**前端错误有以下几种类型：**
+
+- Ajax/Fetch请求错误
+- Promise未catch的错误
+- Iframe错误
+- 资源加载错误
+- 跨域Script error
+- 全局js错误
+- Vue错误和React错误
+
+**前端错误的捕获方式：**
+
+- `try-catch`捕获异常
+
+  `try-catch`只能捕获到**同步**的运行时错误，无法捕获**语法错误**和**异步错误**。
+
+  ```javascript
+  try {
+    throw new Error('error')
+  } catch(err) {
+    console.log(err)
+  }
+  ```
+
+- `window.onerror`
+
+  支持捕获
+
+  - 同步运行时错误
+  - 异步运行时错误
+
+  无法捕获
+
+  - 语法错误
+  - 静态资源异常
+  - 请求接口异常
+
+  ```javascript
+  window.onerror = function(message, source, lineno, colno, error) {
+    // message: 错误信息
+    // source: 发生错误的脚本URL
+    // lineno: 发生错误的行号
+    // colno: 发生错误的列号
+    // error: Erro对象
+  }
+  ```
+
+- 资源加载失败捕获
+
+  当一项资源（`<img`或`<script>`）加载失败，加载资源的元素会触发一个Event接口的error事件，并执行该元素上的`onerror()`处理函数。
+
+  ```javascript
+  element.onerror = fucntion(event) {}
+  ```
+
+  资源加载失败后不会冒泡，但会捕获，我们可以在捕获阶段通过`window.addEventListener`捕获。
+
+  ```javascript
+  window.addEventListener('error', (e) => {})
+  ```
+
+- Promise错误
+
+  没有写`catch`的Promise抛出的错误无法被`onerror`或`try-catch`捕获到，为了防止有漏掉的`Promise Catch`，全局监听`unhandledrejection`来处理。
+
+  ```javascript
+  window.addEventListener('unhandledrejection', (e) => {
+    e.preventDefault(); // 去掉控制台的异常显示
+    console.log(e)
+  })
+  ```
+
+- `Fetch`/`XHR`错误
+
+  重写`Fetch`和`XHR`。
+
+  ```javascript
+  // xhr
+  if (!window.XMLHttpRequest) return;
+  const xhr = window.XMLHttpRequest;
+  const _oldSend = xhr.prototype.send;
+  const handleEvent = function (event) {
+    if (event.currentTarget && event.currentTarget.status !== 200) {
+      report(event);
+    }
+  };
+  xhr.prototype.send = function () {
+    if (this.addEventListener) {
+      this.addEventListener('error', handleEvent);
+      this.addEventListener('load', handleEvent);
+      this.addEventListener('abort', handleEvent);
+      this.addEventListener('close', handleEvent);
+    } else {
+      const _oldStateChange = this.onreadystatechange;
+      this.onreadystatechange = function (event) {
+        if (this.readyState === 4) {
+          handleEvent(event);
+        }
+        _oldStateChange && _oldStateChange.apply(this, arguments);
+      };
+    }
+    return _oldSend.apply(this, arguments);
+  };
+  
+  // fetch
+  if (!window.fetch) return;
+  const _oldFetch = window.fetch;
+  window.fetch = function () {
+    return _oldFetch
+      .apply(this, arguments)
+      .then((res) => {
+      if (!res.ok) {
+        report(res);
+      }
+      return res;
+    })
+      .catch((error) => {
+      report(error);
+    });
+  };
+  ```
+
+- **Vue**和**React**错误
+
+  ```javascript
+  // vue
+  Vue.config.errorHandler = (err, vm, info) => {
+    // `info` 是Vue特定的错误信息，比如错误所在的生命周期钩子
+  }
+  
+  // react
+  componentDidCatch(error, info) {
+    console.log(error, info);
+  }
+  ```
+
+
 
 ## ⭐️⭐️⭐️Hard
 
