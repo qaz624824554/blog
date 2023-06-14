@@ -30,7 +30,7 @@
 
 ### 二分查找
 
-<img src="https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2023_06_14_iShot_2023-06-14_14.32.01.gif" alt="iShot_2023-06-14_14.32.01" style="zoom:80%;" />
+![iShot_2023-06-14_14.32.01](https://images-1256612942.cos.ap-guangzhou.myqcloud.com/2023_06_14_iShot_2023-06-14_14.32.01.gif)
 
 - 时间复杂度：$O(logn)$，其中 n 是数组的长度。
 - 空间复杂度：$O(1)$。
