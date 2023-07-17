@@ -5,7 +5,7 @@
 
 [最全前端面试题（附答案）](interview/2023前端面试题.md)
 
-### 前端数据结构与算法
+### 数据结构与算法
 
 [LeetCode题解](https://qaz624824554.github.io/blog-site/leetcode.html)
 
